@@ -1,0 +1,282 @@
+{
+    "categories": {
+        "popularTools": "Ferramentas Populares",
+        "editAnnotate": "Editar e Anotar",
+        "convertToPdf": "Converter para PDF",
+        "convertFromPdf": "Converter de PDF",
+        "organizeManage": "Organizar e Gerenciar",
+        "optimizeRepair": "Otimizar e Reparar",
+        "securePdf": "Proteger PDF"
+    },
+    "pdfMultiTool": {
+        "name": "Multi Ferramenta PDF",
+        "subtitle": "Mesclar, Dividir, Organizar, Excluir, Rotacionar, Adicionar Páginas em Branco, Extrair e Duplicar em uma interface unificada."
+    },
+    "mergePdf": {
+        "name": "Mesclar PDF",
+        "subtitle": "Combine múltiplos PDFs em um único arquivo. Preserva Favoritos."
+    },
+    "splitPdf": {
+        "name": "Dividir PDF",
+        "subtitle": "Extraia um intervalo de páginas para um novo PDF."
+    },
+    "compressPdf": {
+        "name": "Comprimir PDF",
+        "subtitle": "Reduza o tamanho do arquivo do seu PDF."
+    },
+    "pdfEditor": {
+        "name": "Editor de PDF",
+        "subtitle": "Anote, destaque, rascunhe, comente, adicione formas/imagens, pesquise e visualize PDFs."
+    },
+    "jpgToPdf": {
+        "name": "JPG para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens JPG."
+    },
+    "signPdf": {
+        "name": "Assinar PDF",
+        "subtitle": "Desenhe, digite ou faça upload da sua assinatura."
+    },
+    "cropPdf": {
+        "name": "Cortar PDF",
+        "subtitle": "Recorte as margens de cada página do seu PDF."
+    },
+    "extractPages": {
+        "name": "Extrair Páginas",
+        "subtitle": "Salve uma seleção de páginas como novos arquivos."
+    },
+    "duplicateOrganize": {
+        "name": "Duplicar e Organizar",
+        "subtitle": "Duplique, reordene e exclua páginas."
+    },
+    "deletePages": {
+        "name": "Excluir Páginas",
+        "subtitle": "Remova páginas específicas do seu documento."
+    },
+    "editBookmarks": {
+        "name": "Editar Favoritos",
+        "subtitle": "Adicione, edite, importe, exclua e extraia favoritos do PDF."
+    },
+    "tableOfContents": {
+        "name": "Índice",
+        "subtitle": "Gere uma página de índice a partir dos favoritos do PDF."
+    },
+    "pageNumbers": {
+        "name": "Números de Página",
+        "subtitle": "Insira números de página no seu documento."
+    },
+    "addWatermark": {
+        "name": "Adicionar Marca D'água",
+        "subtitle": "Carimbe texto ou imagem sobre as páginas do seu PDF."
+    },
+    "headerFooter": {
+        "name": "Cabeçalho e Rodapé",
+        "subtitle": "Adicione texto no topo e na parte inferior das páginas."
+    },
+    "invertColors": {
+        "name": "Inverter Cores",
+        "subtitle": "Crie uma versão \"modo escuro\" do seu PDF."
+    },
+    "backgroundColor": {
+        "name": "Cor de Fundo",
+        "subtitle": "Altere a cor de fundo do seu PDF."
+    },
+    "changeTextColor": {
+        "name": "Alterar Cor do Texto",
+        "subtitle": "Altere a cor do texto no seu PDF."
+    },
+    "addStamps": {
+        "name": "Adicionar Carimbos",
+        "subtitle": "Adicione carimbos de imagem ao seu PDF usando a barra de anotações.",
+        "usernameLabel": "Nome do Usuário do Carimbo",
+        "usernamePlaceholder": "Digite seu nome (para carimbos)",
+        "usernameHint": "Este nome aparecerá nos carimbos que você criar."
+    },
+    "removeAnnotations": {
+        "name": "Remover Anotações",
+        "subtitle": "Remova comentários, destaques e links."
+    },
+    "pdfFormFiller": {
+        "name": "Preenchedor de Formulários PDF",
+        "subtitle": "Preencha formulários diretamente no navegador. Também suporta formulários XFA."
+    },
+    "createPdfForm": {
+        "name": "Criar Formulário PDF",
+        "subtitle": "Crie formulários PDF preenchíveis com campos de texto arrastar-e-soltar."
+    },
+    "removeBlankPages": {
+        "name": "Remover Páginas em Branco",
+        "subtitle": "Detecte e exclua automaticamente páginas em branco."
+    },
+    "imageToPdf": {
+        "name": "Imagem para PDF",
+        "subtitle": "Converta JPG, PNG, WebP, BMP, TIFF, SVG, HEIC para PDF."
+    },
+    "pngToPdf": {
+        "name": "PNG para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens PNG."
+    },
+    "webpToPdf": {
+        "name": "WebP para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens WebP."
+    },
+    "svgToPdf": {
+        "name": "SVG para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens SVG."
+    },
+    "bmpToPdf": {
+        "name": "BMP para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens BMP."
+    },
+    "heicToPdf": {
+        "name": "HEIC para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens HEIC."
+    },
+    "tiffToPdf": {
+        "name": "TIFF para PDF",
+        "subtitle": "Crie um PDF a partir de uma ou mais imagens TIFF."
+    },
+    "textToPdf": {
+        "name": "Texto para PDF",
+        "subtitle": "Converta um arquivo de texto simples em um PDF."
+    },
+    "jsonToPdf": {
+        "name": "JSON para PDF",
+        "subtitle": "Converta arquivos JSON para formato PDF."
+    },
+    "pdfToJpg": {
+        "name": "PDF para JPG",
+        "subtitle": "Converta cada página do PDF em uma imagem JPG."
+    },
+    "pdfToPng": {
+        "name": "PDF para PNG",
+        "subtitle": "Converta cada página do PDF em uma imagem PNG."
+    },
+    "pdfToWebp": {
+        "name": "PDF para WebP",
+        "subtitle": "Converta cada página do PDF em uma imagem WebP."
+    },
+    "pdfToBmp": {
+        "name": "PDF para BMP",
+        "subtitle": "Converta cada página do PDF em uma imagem BMP."
+    },
+    "pdfToTiff": {
+        "name": "PDF para TIFF",
+        "subtitle": "Converta cada página do PDF em uma imagem TIFF."
+    },
+    "pdfToGreyscale": {
+        "name": "PDF para Escala de Cinza",
+        "subtitle": "Converta todas as cores para preto e branco."
+    },
+    "pdfToJson": {
+        "name": "PDF para JSON",
+        "subtitle": "Converta arquivos PDF para formato JSON."
+    },
+    "ocrPdf": {
+        "name": "OCR PDF",
+        "subtitle": "Torne um PDF pesquisável e copiável."
+    },
+    "alternateMix": {
+        "name": "Alternar e Mesclar Páginas",
+        "subtitle": "Mescle PDFs alternando páginas de cada PDF. Preserva Favoritos."
+    },
+    "addAttachments": {
+        "name": "Adicionar Anexos",
+        "subtitle": "Incorpore um ou mais arquivos ao seu PDF."
+    },
+    "extractAttachments": {
+        "name": "Extrair Anexos",
+        "subtitle": "Extraia todos os arquivos incorporados do(s) PDF(s) como um ZIP."
+    },
+    "editAttachments": {
+        "name": "Editar Anexos",
+        "subtitle": "Visualize ou remova anexos do seu PDF."
+    },
+    "dividePages": {
+        "name": "Dividir Páginas",
+        "subtitle": "Divida páginas horizontalmente ou verticalmente."
+    },
+    "addBlankPage": {
+        "name": "Adicionar Página em Branco",
+        "subtitle": "Insira uma página vazia em qualquer lugar do seu PDF."
+    },
+    "reversePages": {
+        "name": "Inverter Páginas",
+        "subtitle": "Inverta a ordem de todas as páginas do seu documento."
+    },
+    "rotatePdf": {
+        "name": "Rotacionar PDF",
+        "subtitle": "Gire as páginas em incrementos de 90 graus."
+    },
+    "nUpPdf": {
+        "name": "PDF N-Up",
+        "subtitle": "Organize múltiplas páginas em uma única folha."
+    },
+    "combineToSinglePage": {
+        "name": "Combinar em Página Única",
+        "subtitle": "Una todas as páginas em um scroll contínuo."
+    },
+    "viewMetadata": {
+        "name": "Visualizar Metadados",
+        "subtitle": "Inspecione as propriedades ocultas do seu PDF."
+    },
+    "editMetadata": {
+        "name": "Editar Metadados",
+        "subtitle": "Altere o autor, título e outras propriedades."
+    },
+    "pdfsToZip": {
+        "name": "PDFs para ZIP",
+        "subtitle": "Empacote múltiplos arquivos PDF em um arquivo ZIP."
+    },
+    "comparePdfs": {
+        "name": "Comparar PDFs",
+        "subtitle": "Compare dois PDFs lado a lado."
+    },
+    "posterizePdf": {
+        "name": "Posterizar PDF",
+        "subtitle": "Divida uma página grande em múltiplas páginas menores."
+    },
+    "fixPageSize": {
+        "name": "Corrigir Tamanho da Página",
+        "subtitle": "Padronize todas as páginas para um tamanho uniforme."
+    },
+    "linearizePdf": {
+        "name": "Linearizar PDF",
+        "subtitle": "Otimize o PDF para visualização rápida na web."
+    },
+    "pageDimensions": {
+        "name": "Dimensões da Página",
+        "subtitle": "Analise o tamanho, orientação e unidades da página."
+    },
+    "removeRestrictions": {
+        "name": "Remover Restrições",
+        "subtitle": "Remova proteção por senha e restrições de segurança associadas a arquivos PDF assinados digitalmente."
+    },
+    "repairPdf": {
+        "name": "Reparar PDF",
+        "subtitle": "Recupere dados de arquivos PDF corrompidos ou danificados."
+    },
+    "encryptPdf": {
+        "name": "Criptografar PDF",
+        "subtitle": "Proteja seu PDF adicionando uma senha."
+    },
+    "sanitizePdf": {
+        "name": "Sanitizar PDF",
+        "subtitle": "Remova metadados, anotações, scripts e mais."
+    },
+    "decryptPdf": {
+        "name": "Descriptografar PDF",
+        "subtitle": "Desbloqueie o PDF removendo a proteção por senha."
+    },
+    "flattenPdf": {
+        "name": "Achatar PDF",
+        "subtitle": "Torne campos de formulário e anotações não editáveis."
+    },
+    "removeMetadata": {
+        "name": "Remover Metadados",
+        "subtitle": "Remova dados ocultos do seu PDF."
+    },
+    "changePermissions": {
+        "name": "Alterar Permissões",
+        "subtitle": "Defina ou altere permissões de usuário em um PDF."
+    }
+}

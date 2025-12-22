@@ -1,5 +1,9 @@
 {
+    "app": {
+        "title": "BentoPDF - Privacy First PDF Tools"
+    },
     "nav": {
+        "brandName": "BentoPDF",
         "home": "Home",
         "about": "About",
         "contact": "Contact",
@@ -187,7 +191,8 @@
         "legal": "Legal",
         "termsAndConditions": "Terms and Conditions",
         "privacyPolicy": "Privacy Policy",
-        "followUs": "Follow Us"
+        "followUs": "Follow Us",
+        "securityMessage": "Your files never leave your device. 100% local processing."
     },
     "merge": {
         "title": "Merge PDFs",
@@ -314,5 +319,77 @@
         "errorRendering": "Failed to render page thumbnails",
         "error": "Error",
         "failedToLoad": "Failed to load"
+    },
+    "split": {
+        "title": "Split PDF",
+        "description": "Extract pages from a PDF using various methods.",
+        "splitMode": "Split Mode",
+        "modes": {
+            "range": "Extract by Page Range (Default)",
+            "evenOdd": "Split by Even/Odd Pages",
+            "all": "Split All Pages into Separate Files",
+            "visual": "Select Pages Visually",
+            "bookmarks": "Split by Bookmarks",
+            "nTimes": "Split N Times"
+        },
+        "howItWorks": "How it works:",
+        "rangeInstructions": [
+            "Enter page numbers separated by commas (e.g., 2, 8, 14).",
+            "Enter page ranges using a hyphen (e.g., 5-10).",
+            "Combine them for complex selections (e.g., 1-3, 7, 12-15)."
+        ],
+        "evenOddInstructions": [
+            "Extract all even pages (2, 4, 6...) or all odd pages (1, 3, 5...) into a new PDF."
+        ],
+        "allPagesInstructions": [
+            "Every single page of the PDF will be saved as a separate PDF file.",
+            "The result will be downloaded as a ZIP file containing all the pages."
+        ],
+        "visualInstructions": [
+            "Click on the page thumbnails below to select the pages you want to extract.",
+            "Selected pages will be highlighted."
+        ],
+        "bookmarksInstructions": [
+            "Split the PDF based on its bookmarks (outline).",
+            "Select the bookmark level to split at."
+        ],
+        "nTimesInstructions": [
+            "Split the PDF into multiple files, each containing N pages."
+        ],
+        "pageRange": "Page Range",
+        "evenPages": "Even Pages",
+        "oddPages": "Odd Pages",
+        "bookmarkLevel": "Bookmark Level",
+        "levels": {
+            "all": "All Levels",
+            "0": "Level 0 (Top Level Only)",
+            "1": "Level 1",
+            "2": "Level 2",
+            "3": "Level 3"
+        },
+        "pagesPerFile": "Pages per file (N)",
+        "downloadZip": "Download as ZIP (for multiple files)",
+        "splitPdf": "Split PDF"
+    },
+    "imageTools": {
+        "jpgImages": "JPG Images",
+        "pngImages": "PNG Images",
+        "webpImages": "WebP Images",
+        "bmpImages": "BMP Images",
+        "tiffImages": "TIFF Images",
+        "svgImages": "SVG Images",
+        "heicImages": "HEIC Images",
+        "pdfQuality": "PDF Quality",
+        "qualityOptions": {
+            "high": "High Quality (Larger file)",
+            "medium": "Medium Quality (Balanced)",
+            "low": "Low Quality (Smaller file)"
+        },
+        "qualityDescription": "Controls image compression when embedding into PDF",
+        "convertToPdf": "Convert to PDF"
+    },
+    "simpleMode": {
+        "title": "PDF Tools",
+        "subtitle": "Select a tool to get started"
     }
 }

@@ -3,9 +3,13 @@ import { createLanguageSwitcher } from '../i18n/language-switcher.js';
 
 // Handle simple mode footer replacement for tool pages
 if (__SIMPLE_MODE__) {
-  const footer = document.querySelector('footer');
-  if (footer && !document.querySelector('[data-simple-footer]')) {
-    footer.style.display = 'none';
+  // Hide existing footers that are not the simple footer
+  const existingFooter = document.querySelector('footer:not([data-simple-footer])') as HTMLElement;
+  if (existingFooter) {
+    existingFooter.style.display = 'none';
+  }
+
+  if (!document.querySelector('[data-simple-footer]')) {
 
     const simpleFooter = document.createElement('footer');
     simpleFooter.className = 'mt-16 border-t-2 border-gray-700 py-8';

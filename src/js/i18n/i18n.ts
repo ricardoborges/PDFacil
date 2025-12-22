@@ -3,10 +3,11 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend';
 
 // Supported languages
-export const supportedLanguages = ['en', 'de', 'zh', 'vi'] as const;
+export const supportedLanguages = ['pt-BR', 'en', 'de', 'zh', 'vi'] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
 export const languageNames: Record<SupportedLanguage, string> = {
+    'pt-BR': 'Português (Brasil)',
     en: 'English',
     de: 'Deutsch',
     zh: '中文',
@@ -15,7 +16,7 @@ export const languageNames: Record<SupportedLanguage, string> = {
 
 export const getLanguageFromUrl = (): SupportedLanguage => {
     const path = window.location.pathname;
-    const langMatch = path.match(/^\/(en|de|zh|vi)(?:\/|$)/);
+    const langMatch = path.match(/^\/(pt-BR|en|de|zh|vi)(?:\/|$)/);
     if (langMatch && supportedLanguages.includes(langMatch[1] as SupportedLanguage)) {
         return langMatch[1] as SupportedLanguage;
     }
@@ -24,7 +25,7 @@ export const getLanguageFromUrl = (): SupportedLanguage => {
         return storedLang as SupportedLanguage;
     }
 
-    return 'en';
+    return 'pt-BR';
 };
 
 let initialized = false;
@@ -39,7 +40,7 @@ export const initI18n = async (): Promise<typeof i18next> => {
         .use(LanguageDetector)
         .init({
             lng: currentLang,
-            fallbackLng: 'en',
+            fallbackLng: 'pt-BR',
             supportedLngs: supportedLanguages as unknown as string[],
             ns: ['common', 'tools'],
             defaultNS: 'common',
@@ -71,9 +72,9 @@ export const changeLanguage = (lang: SupportedLanguage): void => {
     const currentLang = getLanguageFromUrl();
 
     let newPath: string;
-    if (currentPath.match(/^\/(en|de|zh|vi)\//)) {
-        newPath = currentPath.replace(/^\/(en|de|zh|vi)\//, `/${lang}/`);
-    } else if (currentPath.match(/^\/(en|de|zh|vi)$/)) {
+    if (currentPath.match(/^\/(pt-BR|en|de|zh|vi)\//)) {
+        newPath = currentPath.replace(/^\/(pt-BR|en|de|zh|vi)\//, `/${lang}/`);
+    } else if (currentPath.match(/^\/(pt-BR|en|de|zh|vi)$/)) {
         newPath = `/${lang}`;
     } else {
         newPath = `/${lang}${currentPath}`;
@@ -120,7 +121,7 @@ export const applyTranslations = (): void => {
 
 export const rewriteLinks = (): void => {
     const currentLang = getLanguageFromUrl();
-    if (currentLang === 'en') return;
+    if (currentLang === 'pt-BR') return;
 
     const links = document.querySelectorAll('a[href]');
     links.forEach((link) => {
@@ -135,7 +136,7 @@ export const rewriteLinks = (): void => {
             return;
         }
 
-        if (href.match(/^\/(en|de|zh|vi)\//)) {
+        if (href.match(/^\/(pt-BR|en|de|zh|vi)\//)) {
             return;
         }
         let newHref: string;
