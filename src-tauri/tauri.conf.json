@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "PDFácil",
+  "version": "1.0.0",
+  "identifier": "com.pdfacil.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "PDFácil - Ferramentas PDF Online",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "wix": {
+        "language": "pt-BR"
+      }
+    },
+    "shortDescription": "Ferramentas PDF gratuitas e fáceis de usar",
+    "longDescription": "PDFácil é um conjunto completo de ferramentas para editar, converter, mesclar, dividir e manipular arquivos PDF diretamente no seu desktop, sem necessidade de internet."
+  }
+}
