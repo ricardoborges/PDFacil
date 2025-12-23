@@ -367,15 +367,24 @@ export async function merge() {
         mergeWorker.postMessage(message, filesToMerge.map(f => f.data));
 
         // @ts-ignore
-        mergeWorker.onmessage = (e: MessageEvent<MergeResponse>) => {
+        mergeWorker.onmessage = async (e: MessageEvent<MergeResponse>) => {
             hideLoader();
             if (e.data.status === 'success') {
                 const blob = new Blob([e.data.pdfBytes], { type: 'application/pdf' });
-                downloadFile(blob, 'merged.pdf');
+                const savedViaTauri = await downloadFile(blob, 'merged.pdf');
                 mergeState.mergeSuccess = true;
-                showAlert('Success', 'PDFs merged successfully!', 'success', async () => {
-                    await resetState();
-                });
+
+                // Only show secondary alert for browser downloads (Tauri has its own success modal)
+                if (!savedViaTauri) {
+                    showAlert('Success', 'PDFs merged successfully!', 'success', async () => {
+                        await resetState();
+                    });
+                } else {
+                    // For Tauri, just reset state after a short delay
+                    setTimeout(async () => {
+                        await resetState();
+                    }, 100);
+                }
             } else {
                 console.error('Worker merge error:', e.data.message);
                 showAlert('Error', e.data.message || 'Failed to merge PDFs.');

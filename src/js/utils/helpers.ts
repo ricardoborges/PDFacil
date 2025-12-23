@@ -2,8 +2,59 @@ import createModule from '@neslinesli93/qpdf-wasm';
 import { showLoader, hideLoader, showAlert } from '../ui.js';
 import { createIcons } from 'lucide';
 import { state, resetState } from '../state.js';
-import * as pdfjsLib from 'pdfjs-dist'
+import * as pdfjsLib from 'pdfjs-dist';
 
+// Tauri APIs - imported dynamically to avoid errors in browser
+let tauriDialog: typeof import('@tauri-apps/plugin-dialog') | null = null;
+let tauriFs: typeof import('@tauri-apps/plugin-fs') | null = null;
+let tauriShell: typeof import('@tauri-apps/plugin-shell') | null = null;
+
+// Check if running in Tauri environment (works with both Tauri V1 and V2)
+export const isTauri = (): boolean => {
+  return typeof window !== 'undefined' &&
+    (!!(window as any).__TAURI__ || !!(window as any).__TAURI_INTERNALS__);
+};
+
+// Dynamically load Tauri plugins (only in Tauri environment)
+const loadTauriPlugins = async () => {
+  if (!isTauri()) return;
+
+  try {
+    if (!tauriDialog) {
+      tauriDialog = await import('@tauri-apps/plugin-dialog');
+    }
+    if (!tauriFs) {
+      tauriFs = await import('@tauri-apps/plugin-fs');
+    }
+    if (!tauriShell) {
+      tauriShell = await import('@tauri-apps/plugin-shell');
+    }
+  } catch (error) {
+    console.error('Failed to load Tauri plugins:', error);
+  }
+};
+
+// Get file extension filter for save dialog
+const getFileFilters = (filename: string): { name: string; extensions: string[] }[] => {
+  const ext = filename.split('.').pop()?.toLowerCase() || '';
+
+  const filterMap: Record<string, { name: string; extensions: string[] }> = {
+    'pdf': { name: 'PDF Documents', extensions: ['pdf'] },
+    'zip': { name: 'ZIP Archives', extensions: ['zip'] },
+    'png': { name: 'PNG Images', extensions: ['png'] },
+    'jpg': { name: 'JPEG Images', extensions: ['jpg', 'jpeg'] },
+    'jpeg': { name: 'JPEG Images', extensions: ['jpg', 'jpeg'] },
+    'webp': { name: 'WebP Images', extensions: ['webp'] },
+    'bmp': { name: 'BMP Images', extensions: ['bmp'] },
+    'tiff': { name: 'TIFF Images', extensions: ['tiff', 'tif'] },
+    'tif': { name: 'TIFF Images', extensions: ['tiff', 'tif'] },
+    'json': { name: 'JSON Files', extensions: ['json'] },
+    'txt': { name: 'Text Files', extensions: ['txt'] },
+  };
+
+  const filter = filterMap[ext];
+  return filter ? [filter] : [];
+};
 
 const STANDARD_SIZES = {
   A4: { width: 595.28, height: 841.89 },
@@ -69,7 +120,42 @@ export const formatBytes = (bytes: any, decimals = 1) => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
 
-export const downloadFile = (blob: Blob, filename: string): void => {
+export const downloadFile = async (blob: Blob, filename: string): Promise<boolean> => {
+  // Check if running in Tauri environment
+  if (isTauri()) {
+    try {
+      await loadTauriPlugins();
+
+      if (tauriDialog && tauriFs) {
+        // Open native "Save As" dialog
+        const filePath = await tauriDialog.save({
+          defaultPath: filename,
+          filters: getFileFilters(filename),
+          title: 'Salvar arquivo',
+        });
+
+        if (filePath) {
+          // Convert blob to Uint8Array and write to file
+          const arrayBuffer = await blob.arrayBuffer();
+          const uint8Array = new Uint8Array(arrayBuffer);
+          await tauriFs.writeFile(filePath, uint8Array);
+
+          // Show success message
+          showTauriSuccessModal(filePath);
+          return true; // Indicates Tauri save was successful
+        } else {
+          // User cancelled the save dialog
+          console.log('Save cancelled by user');
+          return true; // Return true to prevent secondary alerts
+        }
+      }
+    } catch (error) {
+      console.error('Tauri save failed, falling back to browser download:', error);
+      // Fall through to browser download
+    }
+  }
+
+  // Browser fallback (or Tauri failed)
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
@@ -78,7 +164,48 @@ export const downloadFile = (blob: Blob, filename: string): void => {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+  return false; // Browser download, caller can show their own success message
 };
+
+// Show simple success message for Tauri saves
+const showTauriSuccessModal = (filePath: string): void => {
+  // Create a simple success modal
+  const modal = document.createElement('div');
+  modal.id = 'tauri-success-modal';
+  modal.className = 'fixed inset-0 bg-gray-900 bg-opacity-90 flex items-center justify-center z-50';
+  modal.innerHTML = `
+    <div class="bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full border border-gray-700 mx-4">
+      <div class="flex items-center gap-3 mb-4">
+        <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <h3 class="text-xl font-bold text-white">Arquivo salvo com sucesso!</h3>
+      </div>
+      <p class="text-gray-400 text-sm mb-4 break-all">${filePath}</p>
+      <button id="close-success-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+        Fechar
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  const closeBtn = modal.querySelector('#close-success-btn');
+
+  const closeModal = () => {
+    modal.remove();
+  };
+
+  closeBtn?.addEventListener('click', closeModal);
+
+  // Close on click outside
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+};
+
 
 export const readFileAsArrayBuffer = (file: any) => {
   return new Promise((resolve, reject) => {

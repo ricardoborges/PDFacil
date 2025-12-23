@@ -1,5 +1,6 @@
 import { PDFDocument, PDFName } from 'pdf-lib';
 import { createIcons, icons } from 'lucide';
+import { downloadFile } from '../utils/helpers.js';
 
 // State management
 const pageState: { pdfDoc: PDFDocument | null; file: File | null } = {
@@ -38,15 +39,6 @@ function showAlert(title: string, message: string, type: string = 'error', callb
             if (callback) callback();
         });
     }
-}
-
-function downloadFile(blob: Blob, filename: string) {
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(url);
 }
 
 function updateFileDisplay() {
@@ -130,7 +122,7 @@ async function processRemoveAnnotations() {
         }
 
         const newPdfBytes = await pageState.pdfDoc.save();
-        downloadFile(new Blob([new Uint8Array(newPdfBytes)], { type: 'application/pdf' }), 'annotations-removed.pdf');
+        await downloadFile(new Blob([new Uint8Array(newPdfBytes)], { type: 'application/pdf' }), 'annotations-removed.pdf');
         showAlert('Success', 'Annotations removed successfully!', 'success', () => { resetState(); });
     } catch (e) {
         console.error(e);

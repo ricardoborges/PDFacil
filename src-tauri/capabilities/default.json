@@ -9,6 +9,13 @@
     "core:default",
     "shell:allow-open",
     "dialog:default",
-    "fs:default"
+    "dialog:allow-save",
+    "fs:default",
+    "fs:allow-write",
+    "fs:allow-app-write",
+    "fs:allow-desktop-write",
+    "fs:allow-document-write",
+    "fs:allow-download-write",
+    "fs:allow-home-write"
   ]
 }
