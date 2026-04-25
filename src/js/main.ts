@@ -876,10 +876,65 @@ const init = async () => {
         };
 
         input.onkeyup = (e) => {
-          // If the user releases a modifier without triggering a change
+          // If the user releases a modifier without pressing a main key, revert to saved
+          const key = e.key.toLowerCase();
+          if (['control', 'shift', 'alt', 'meta'].includes(key)) {
+            const currentSaved = ShortcutsManager.getShortcut(toolId);
+          }
         };
-    }
-    // This is a placeholder for the logic block to ensure the function is defined
-    // We don't need to execute any code here, just defining the structure.
-    return true;
-}
+
+        input.onfocus = () => {
+          input.value = t('settings.pressKeys');
+          input.classList.add('border-indigo-500', 'text-indigo-400');
+        };
+
+        input.onblur = () => {
+          input.value = formatShortcutDisplay(ShortcutsManager.getShortcut(toolId) || '', isMac);
+          input.classList.remove('border-indigo-500', 'text-indigo-400');
+        };
+
+        right.append(input);
+        if (currentShortcut) right.append(clearBtn);
+
+        item.append(left, right);
+        itemsContainer.appendChild(item);
+      });
+
+      if (hasTools) {
+        dom.shortcutsList.appendChild(section);
+      }
+    });
+
+    createIcons({ icons });
+  }
+
+  const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+  if (scrollToTopBtn) {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY && currentScrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+      });
+    });
+  }
+
+  // Rewrite links after all dynamic content is fully loaded
+  rewriteLinks();
+};
+
+window.addEventListener('load', init);

@@ -21,8 +21,6 @@ const version = packageJson.version;
 // HTML files to update
 const htmlFiles = [
   'index.html',
-  'about.html',
-  'contact.html',
   'faq.html',
   'privacy.html',
   'terms.html',
