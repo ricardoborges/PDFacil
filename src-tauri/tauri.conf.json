@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "PDFácil",
+  "productName": "StrixPDF",
   "version": "1.0.0",
-  "identifier": "com.pdfacil.app",
+  "identifier": "com.strixpdf.app",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:5173",
@@ -13,7 +13,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "PDFácil - Ferramentas PDF Online",
+        "title": "StrixPDF",
         "width": 1200,
         "height": 800,
         "minWidth": 800,
@@ -43,6 +43,6 @@
       }
     },
     "shortDescription": "Ferramentas PDF gratuitas e fáceis de usar",
-    "longDescription": "PDFácil é um conjunto completo de ferramentas para editar, converter, mesclar, dividir e manipular arquivos PDF diretamente no seu desktop, sem necessidade de internet."
+    "longDescription": "StrixPDF é um conjunto completo de ferramentas para editar, converter, mesclar, dividir e manipular arquivos PDF diretamente no seu desktop, sem necessidade de internet."
   }
 }

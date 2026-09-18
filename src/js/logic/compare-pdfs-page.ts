@@ -104,29 +104,29 @@ function setViewMode(mode: 'overlay' | 'side-by-side') {
     const opacitySlider = document.getElementById('opacity-slider') as HTMLInputElement;
 
     if (mode === 'overlay') {
-        if (wrapper) wrapper.className = 'compare-viewer-wrapper overlay-mode bg-gray-900 rounded-lg border border-gray-700 min-h-[400px] relative';
+        if (wrapper) wrapper.className = 'compare-viewer-wrapper overlay-mode bg-gray-50 rounded-lg border border-gray-200 min-h-[400px] relative';
         if (overlayControls) overlayControls.classList.remove('hidden');
         if (sideControls) sideControls.classList.add('hidden');
         if (btnOverlay) {
             btnOverlay.classList.add('bg-indigo-600');
-            btnOverlay.classList.remove('bg-gray-700');
+            btnOverlay.classList.remove('bg-gray-100');
         }
         if (btnSide) {
             btnSide.classList.remove('bg-indigo-600');
-            btnSide.classList.add('bg-gray-700');
+            btnSide.classList.add('bg-gray-100');
         }
         if (canvas2 && opacitySlider) canvas2.style.opacity = opacitySlider.value;
     } else {
-        if (wrapper) wrapper.className = 'compare-viewer-wrapper side-by-side-mode bg-gray-900 rounded-lg border border-gray-700 min-h-[400px]';
+        if (wrapper) wrapper.className = 'compare-viewer-wrapper side-by-side-mode bg-gray-50 rounded-lg border border-gray-200 min-h-[400px]';
         if (overlayControls) overlayControls.classList.add('hidden');
         if (sideControls) sideControls.classList.remove('hidden');
         if (btnOverlay) {
             btnOverlay.classList.remove('bg-indigo-600');
-            btnOverlay.classList.add('bg-gray-700');
+            btnOverlay.classList.add('bg-gray-100');
         }
         if (btnSide) {
             btnSide.classList.add('bg-indigo-600');
-            btnSide.classList.remove('bg-gray-700');
+            btnSide.classList.remove('bg-gray-100');
         }
         if (canvas2) canvas2.style.opacity = '1';
     }
@@ -152,7 +152,7 @@ async function handleFileInput(inputId: string, docKey: 'pdfDoc1' | 'pdfDoc2', d
             icon.className = 'w-10 h-10 mb-3 text-green-500';
 
             const p = document.createElement('p');
-            p.className = 'text-sm text-gray-300 truncate';
+            p.className = 'text-sm text-gray-700 truncate';
             p.textContent = file.name;
 
             displayDiv.append(icon, p);

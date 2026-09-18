@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-  pdfacil_lib::run();
+  strixpdf_lib::run();
 }

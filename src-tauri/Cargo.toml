@@ -1,17 +1,17 @@
 [package]
-name = "pdfacil"
+name = "strixpdf"
 version = "1.0.0"
-description = "PDFácil - Ferramentas PDF gratuitas e fáceis de usar"
-authors = ["PDFácil"]
+description = "StrixPDF - Ferramentas PDF gratuitas e fáceis de usar"
+authors = ["StrixPDF"]
 license = "Apache-2.0"
-repository = "https://github.com/ricardoborges/PDFacil"
+repository = "https://github.com/ricardoborges/StrixPDF"
 edition = "2021"
 rust-version = "1.77.2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
-name = "pdfacil_lib"
+name = "strixpdf_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

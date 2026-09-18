@@ -1,7 +1,9 @@
 import { categories } from '../config/tools.js';
 
 export class ShortcutsManager {
-    private static STORAGE_KEY = 'bentopdf_shortcuts';
+    private static STORAGE_KEY = 'strixpdf_shortcuts';
+    // Shortcuts saved before the StrixPDF rename still live under the old key.
+    private static LEGACY_STORAGE_KEYS = ['bentopdf_shortcuts'];
     private static shortcuts: Map<string, string> = new Map();
     private static defaultShortcuts: Map<string, string> = new Map();
 
@@ -27,7 +29,19 @@ export class ShortcutsManager {
         this.defaultShortcuts.set('compress', 'mod+shift+c');
     }
 
+    private static migrateLegacyStorage() {
+        if (localStorage.getItem(this.STORAGE_KEY) !== null) return;
+        for (const legacyKey of this.LEGACY_STORAGE_KEYS) {
+            const legacy = localStorage.getItem(legacyKey);
+            if (legacy === null) continue;
+            localStorage.setItem(this.STORAGE_KEY, legacy);
+            localStorage.removeItem(legacyKey);
+            return;
+        }
+    }
+
     private static loadFromStorage() {
+        this.migrateLegacyStorage();
         const stored = localStorage.getItem(this.STORAGE_KEY);
         if (stored) {
             try {
@@ -107,7 +121,7 @@ export class ShortcutsManager {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj, null, 2));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
-        downloadAnchorNode.setAttribute("download", "bentopdf_shortcuts.json");
+        downloadAnchorNode.setAttribute("download", "strixpdf_shortcuts.json");
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();

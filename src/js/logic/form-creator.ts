@@ -124,11 +124,11 @@ if (toggleGridBtn) {
 
         if (gridAlwaysVisible) {
             toggleGridBtn.classList.add('bg-indigo-600')
-            toggleGridBtn.classList.remove('bg-gray-600')
+            toggleGridBtn.classList.remove('bg-gray-200')
             if (gridEnabled) renderGrid()
         } else {
             toggleGridBtn.classList.remove('bg-indigo-600')
-            toggleGridBtn.classList.add('bg-gray-600')
+            toggleGridBtn.classList.add('bg-gray-200')
             removeGrid()
         }
     })
@@ -377,7 +377,7 @@ function renderField(field: FormField): void {
     // Create input container - light border by default, dashed on hover
     const fieldContainer = document.createElement('div')
     fieldContainer.className =
-        'field-container relative border-2 border-indigo-200 group-hover:border-dashed group-hover:border-indigo-300 bg-indigo-50/30 rounded transition-all'
+        'field-container relative border-2 border-indigo-200 group-hover:border-dashed group-hover:border-indigo-400 bg-indigo-50 rounded transition-all'
     fieldContainer.style.width = '100%'
     fieldContainer.style.height = field.height + 'px'
 
@@ -461,7 +461,7 @@ function renderField(field: FormField): void {
         contentEl.style.color = field.textColor || '#000000'
         contentEl.textContent = field.label || 'Button'
     } else if (field.type === 'signature') {
-        contentEl.className = 'w-full h-full flex items-center justify-center bg-gray-50 text-gray-400'
+        contentEl.className = 'w-full h-full flex items-center justify-center bg-gray-50 text-gray-600'
         contentEl.innerHTML = '<div class="flex flex-col items-center"><i data-lucide="pen-tool" class="w-6 h-6 mb-1"></i><span class="text-[10px]">Sign Here</span></div>'
         setTimeout(() => (window as any).lucide?.createIcons(), 0)
     } else if (field.type === 'date') {
@@ -724,7 +724,7 @@ function selectField(field: FormField): void {
 
         if (container) {
             // Remove hover classes and add selected classes
-            container.classList.remove('border-indigo-200', 'group-hover:border-dashed', 'group-hover:border-indigo-300')
+            container.classList.remove('border-indigo-200', 'group-hover:border-dashed', 'group-hover:border-indigo-400')
             container.classList.add('border-dashed', 'border-indigo-500', 'bg-indigo-50')
         }
 
@@ -752,7 +752,7 @@ function deselectAll(): void {
             if (container) {
                 // Revert to default/hover state
                 container.classList.remove('border-dashed', 'border-indigo-500', 'bg-indigo-50')
-                container.classList.add('border-indigo-200', 'group-hover:border-dashed', 'group-hover:border-indigo-300')
+                container.classList.add('border-indigo-200', 'group-hover:border-dashed', 'group-hover:border-indigo-400')
             }
 
             if (label) {
@@ -776,45 +776,45 @@ function showProperties(field: FormField): void {
     if (field.type === 'text') {
         specificProps = `
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Value</label>
-            <input type="text" id="propValue" value="${field.defaultValue}" ${field.combCells > 0 ? `maxlength="${field.combCells}"` : field.maxLength > 0 ? `maxlength="${field.maxLength}"` : ''} class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Value</label>
+            <input type="text" id="propValue" value="${field.defaultValue}" ${field.combCells > 0 ? `maxlength="${field.combCells}"` : field.maxLength > 0 ? `maxlength="${field.maxLength}"` : ''} class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Max Length (0 for unlimited)</label>
-            <input type="number" id="propMaxLength" value="${field.maxLength}" min="0" ${field.combCells > 0 ? 'disabled' : ''} class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-50">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Max Length (0 for unlimited)</label>
+            <input type="number" id="propMaxLength" value="${field.maxLength}" min="0" ${field.combCells > 0 ? 'disabled' : ''} class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-50">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Divide into boxes (0 to disable)</label>
-            <input type="number" id="propComb" value="${field.combCells}" min="0" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Divide into boxes (0 to disable)</label>
+            <input type="number" id="propComb" value="${field.combCells}" min="0" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Font Size</label>
-            <input type="number" id="propFontSize" value="${field.fontSize}" min="8" max="72" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Font Size</label>
+            <input type="number" id="propFontSize" value="${field.fontSize}" min="8" max="72" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Text Color</label>
-            <input type="color" id="propTextColor" value="${field.textColor}" class="w-full border border-gray-500 rounded px-2 py-1 h-10">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Text Color</label>
+            <input type="color" id="propTextColor" value="${field.textColor}" class="w-full border border-gray-400 rounded px-2 py-1 h-10">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Alignment</label>
-            <select id="propAlignment" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Alignment</label>
+            <select id="propAlignment" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
             <option value="left" ${field.alignment === 'left' ? 'selected' : ''}>Left</option>
             <option value="center" ${field.alignment === 'center' ? 'selected' : ''}>Center</option>
             <option value="right" ${field.alignment === 'right' ? 'selected' : ''}>Right</option>
             </select>
         </div>
-        <div class="flex items-center justify-between bg-gray-600 p-2 rounded mt-2">
-            <label for="propMultiline" class="text-xs font-semibold text-gray-300">Multi-line</label>
-            <button id="propMultilineBtn" class="w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${field.multiline ? 'bg-indigo-600' : 'bg-gray-500'} relative">
+        <div class="flex items-center justify-between bg-gray-200 p-2 rounded mt-2">
+            <label for="propMultiline" class="text-xs font-semibold text-gray-700">Multi-line</label>
+            <button id="propMultilineBtn" class="w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${field.multiline ? 'bg-indigo-600' : 'bg-gray-300'} relative">
                 <span class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 ${field.multiline ? 'translate-x-6' : 'translate-x-0'}"></span>
             </button>
         </div>
         `
     } else if (field.type === 'checkbox') {
         specificProps = `
-        <div class="flex items-center justify-between bg-gray-600 p-2 rounded">
-            <label for="propChecked" class="text-xs font-semibold text-gray-300">Checked State</label>
-            <button id="propCheckedBtn" class="w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${field.checked ? 'bg-indigo-600' : 'bg-gray-500'} relative">
+        <div class="flex items-center justify-between bg-gray-200 p-2 rounded">
+            <label for="propChecked" class="text-xs font-semibold text-gray-700">Checked State</label>
+            <button id="propCheckedBtn" class="w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${field.checked ? 'bg-indigo-600' : 'bg-gray-300'} relative">
                 <span class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 ${field.checked ? 'translate-x-6' : 'translate-x-0'}"></span>
             </button>
         </div>
@@ -822,16 +822,16 @@ function showProperties(field: FormField): void {
     } else if (field.type === 'radio') {
         specificProps = `
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Group Name (Must be same for group)</label>
-            <input type="text" id="propGroupName" value="${field.groupName}" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Group Name (Must be same for group)</label>
+            <input type="text" id="propGroupName" value="${field.groupName}" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Export Value</label>
-            <input type="text" id="propExportValue" value="${field.exportValue}" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Export Value</label>
+            <input type="text" id="propExportValue" value="${field.exportValue}" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
-        <div class="flex items-center justify-between bg-gray-600 p-2 rounded mt-2">
-            <label for="propChecked" class="text-xs font-semibold text-gray-300">Checked State</label>
-            <button id="propCheckedBtn" class="w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${field.checked ? 'bg-indigo-600' : 'bg-gray-500'} relative">
+        <div class="flex items-center justify-between bg-gray-200 p-2 rounded mt-2">
+            <label for="propChecked" class="text-xs font-semibold text-gray-700">Checked State</label>
+            <button id="propCheckedBtn" class="w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${field.checked ? 'bg-indigo-600' : 'bg-gray-300'} relative">
                 <span class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 ${field.checked ? 'translate-x-6' : 'translate-x-0'}"></span>
             </button>
         </div>
@@ -839,29 +839,29 @@ function showProperties(field: FormField): void {
     } else if (field.type === 'dropdown' || field.type === 'optionlist') {
         specificProps = `
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Options (One per line or comma separated)</label>
-            <textarea id="propOptions" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500 h-24">${field.options?.join('\n')}</textarea>
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Options (One per line or comma separated)</label>
+            <textarea id="propOptions" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500 h-24">${field.options?.join('\n')}</textarea>
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Selected Option</label>
-            <select id="propSelectedOption" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Selected Option</label>
+            <select id="propSelectedOption" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
                 <option value="">None</option>
                 ${field.options?.map(opt => `<option value="${opt}" ${field.defaultValue === opt ? 'selected' : ''}>${opt}</option>`).join('')}
             </select>
         </div>
-        <div class="text-xs text-gray-400 italic mt-2">
+        <div class="text-xs text-gray-600 italic mt-2">
             To actually fill or change the options, use our PDF Form Filler tool.
         </div>
         `
     } else if (field.type === 'button') {
         specificProps = `
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Label</label>
-            <input type="text" id="propLabel" value="${field.label}" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Label</label>
+            <input type="text" id="propLabel" value="${field.label}" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Action</label>
-            <select id="propAction" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Action</label>
+            <select id="propAction" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
                 <option value="none" ${field.action === 'none' ? 'selected' : ''}>None</option>
                 <option value="reset" ${field.action === 'reset' ? 'selected' : ''}>Reset Form</option>
                 <option value="print" ${field.action === 'print' ? 'selected' : ''}>Print Form</option>
@@ -871,24 +871,24 @@ function showProperties(field: FormField): void {
             </select>
         </div>
         <div id="propUrlContainer" class="${field.action === 'url' ? '' : 'hidden'}">
-            <label class="block text-xs font-semibold text-gray-300 mb-1">URL</label>
-            <input type="text" id="propActionUrl" value="${field.actionUrl || ''}" placeholder="https://example.com" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">URL</label>
+            <input type="text" id="propActionUrl" value="${field.actionUrl || ''}" placeholder="https://example.com" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div id="propJsContainer" class="${field.action === 'js' ? '' : 'hidden'}">
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Javascript Code</label>
-            <textarea id="propJsScript" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500 h-24 font-mono">${field.jsScript || ''}</textarea>
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Javascript Code</label>
+            <textarea id="propJsScript" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500 h-24 font-mono">${field.jsScript || ''}</textarea>
         </div>
         <div id="propShowHideContainer" class="${field.action === 'showHide' ? '' : 'hidden'}">
             <div class="mb-2">
-                <label class="block text-xs font-semibold text-gray-300 mb-1">Target Field</label>
-                <select id="propTargetField" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Target Field</label>
+                <select id="propTargetField" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
                     <option value="">Select a field...</option>
                     ${fields.filter(f => f.id !== field.id).map(f => `<option value="${f.name}" ${field.targetFieldName === f.name ? 'selected' : ''}>${f.name} (${f.type})</option>`).join('')}
                 </select>
             </div>
             <div>
-                <label class="block text-xs font-semibold text-gray-300 mb-1">Visibility</label>
-                <select id="propVisibilityAction" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Visibility</label>
+                <select id="propVisibilityAction" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
                     <option value="show" ${field.visibilityAction === 'show' ? 'selected' : ''}>Show</option>
                     <option value="hide" ${field.visibilityAction === 'hide' ? 'selected' : ''}>Hide</option>
                     <option value="toggle" ${field.visibilityAction === 'toggle' ? 'selected' : ''}>Toggle</option>
@@ -898,7 +898,7 @@ function showProperties(field: FormField): void {
         `
     } else if (field.type === 'signature') {
         specificProps = `
-        <div class="text-xs text-gray-400 italic mb-2">
+        <div class="text-xs text-gray-600 italic mb-2">
             Signature fields are AcroForm signature fields and would only be visible in an advanced PDF viewer.
         </div>
         `
@@ -906,16 +906,16 @@ function showProperties(field: FormField): void {
         const formats = ['mm/dd/yyyy', 'dd/mm/yyyy', 'mm/yy', 'dd/mm/yy', 'yyyy/mm/dd', 'mmm d, yyyy', 'd-mmm-yy', 'yy-mm-dd']
         specificProps = `
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Date Format</label>
-            <select id="propDateFormat" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Date Format</label>
+            <select id="propDateFormat" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
                 ${formats.map(f => `<option value="${f}" ${field.dateFormat === f ? 'selected' : ''}>${f}</option>`).join('')}
             </select>
         </div>
-        <div class="text-xs text-gray-400 italic mt-2">
+        <div class="text-xs text-gray-600 italic mt-2">
             The selected format will be enforced when the user types or picks a date.
         </div>
-        <div class="bg-blue-900/30 border border-blue-700/50 rounded p-2 mt-2">
-            <p class="text-xs text-blue-200 flex gap-2">
+        <div class="bg-blue-50 border border-blue-200 rounded p-2 mt-2">
+            <p class="text-xs text-blue-700 flex gap-2">
                 <i data-lucide="info" class="w-4 h-4 flex-shrink-0"></i>
                 <span><strong>Browser Note:</strong> Firefox and Chrome may show their native date picker format during selection. The correct format will apply when you finish entering the date. This is normal browser behavior and not an issue.</span>
             </p>
@@ -924,10 +924,10 @@ function showProperties(field: FormField): void {
     } else if (field.type === 'image') {
         specificProps = `
         <div>
-            <label class="block text-xs font-semibold text-gray-300 mb-1">Label / Prompt</label>
-            <input type="text" id="propLabel" value="${field.label}" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Label / Prompt</label>
+            <input type="text" id="propLabel" value="${field.label}" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
         </div>
-        <div class="text-xs text-gray-400 italic mt-2">
+        <div class="text-xs text-gray-600 italic mt-2">
             Clicking this field in the PDF will open a file picker to upload an image.
         </div>
         `
@@ -936,41 +936,41 @@ function showProperties(field: FormField): void {
     propertiesPanel.innerHTML = `
     <div class="space-y-3">
       <div>
-        <label class="block text-xs font-semibold text-gray-300 mb-1">Field Name ${field.type === 'radio' ? '(Group Name)' : ''}</label>
-        <input type="text" id="propName" value="${field.name}" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-        <div id="nameError" class="hidden text-red-400 text-xs mt-1"></div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Field Name ${field.type === 'radio' ? '(Group Name)' : ''}</label>
+        <input type="text" id="propName" value="${field.name}" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <div id="nameError" class="hidden text-red-600 text-xs mt-1"></div>
       </div>
       ${field.type === 'radio' && (existingRadioGroups.size > 0 || fields.some(f => f.type === 'radio' && f.id !== field.id)) ? `
       <div>
-        <label class="block text-xs font-semibold text-gray-300 mb-1">Existing Radio Groups</label>
-        <select id="existingGroups" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Existing Radio Groups</label>
+        <select id="existingGroups" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
           <option value="">-- Select existing group --</option>
           ${Array.from(existingRadioGroups).map(name => `<option value="${name}">${name}</option>`).join('')}
           ${Array.from(new Set(fields.filter(f => f.type === 'radio' && f.id !== field.id).map(f => f.name))).map(name => !existingRadioGroups.has(name) ? `<option value="${name}">${name}</option>` : '').join('')}
         </select>
-        <p class="text-xs text-gray-400 mt-1">Select to add this button to an existing group</p>
+        <p class="text-xs text-gray-600 mt-1">Select to add this button to an existing group</p>
       </div>
       ` : ''}
       ${specificProps}
       <div>
-        <label class="block text-xs font-semibold text-gray-300 mb-1">Tooltip / Help Text</label>
-        <input type="text" id="propTooltip" value="${field.tooltip}" placeholder="Description for screen readers" class="w-full bg-gray-600 border border-gray-500 text-white rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Tooltip / Help Text</label>
+        <input type="text" id="propTooltip" value="${field.tooltip}" placeholder="Description for screen readers" class="w-full bg-gray-200 border border-gray-400 text-gray-900 rounded px-2 py-1 text-sm focus:ring-indigo-500 focus:border-indigo-500">
       </div>
       <div class="flex items-center">
         <input type="checkbox" id="propRequired" ${field.required ? 'checked' : ''} class="mr-2">
-        <label for="propRequired" class="text-xs font-semibold text-gray-300">Required</label>
+        <label for="propRequired" class="text-xs font-semibold text-gray-700">Required</label>
       </div>
       <div class="flex items-center">
         <input type="checkbox" id="propReadOnly" ${field.readOnly ? 'checked' : ''} class="mr-2">
-        <label for="propReadOnly" class="text-xs font-semibold text-gray-300">Read Only</label>
+        <label for="propReadOnly" class="text-xs font-semibold text-gray-700">Read Only</label>
       </div>
       <div>
-        <label class="block text-xs font-semibold text-gray-300 mb-1">Border Color</label>
-        <input type="color" id="propBorderColor" value="${field.borderColor || '#000000'}" class="w-full border border-gray-500 rounded px-2 py-1 h-10">
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Border Color</label>
+        <input type="color" id="propBorderColor" value="${field.borderColor || '#000000'}" class="w-full border border-gray-400 rounded px-2 py-1 h-10">
       </div>
       <div class="flex items-center">
         <input type="checkbox" id="propHideBorder" ${field.hideBorder ? 'checked' : ''} class="mr-2">
-        <label for="propHideBorder" class="text-xs font-semibold text-gray-300">Hide Border</label>
+        <label for="propHideBorder" class="text-xs font-semibold text-gray-700">Hide Border</label>
       </div>
       <button id="deleteBtn" class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition text-sm font-semibold">
         Delete Field
@@ -1207,13 +1207,13 @@ function showProperties(field: FormField): void {
                 // Update Toggle Button UI
                 const span = propMultilineBtn.querySelector('span')
                 if (field.multiline) {
-                    propMultilineBtn.classList.remove('bg-gray-500')
+                    propMultilineBtn.classList.remove('bg-gray-300')
                     propMultilineBtn.classList.add('bg-indigo-600')
                     span?.classList.remove('translate-x-0')
                     span?.classList.add('translate-x-6')
                 } else {
                     propMultilineBtn.classList.remove('bg-indigo-600')
-                    propMultilineBtn.classList.add('bg-gray-500')
+                    propMultilineBtn.classList.add('bg-gray-300')
                     span?.classList.remove('translate-x-6')
                     span?.classList.add('translate-x-0')
                 }
@@ -1245,13 +1245,13 @@ function showProperties(field: FormField): void {
             // Update Toggle Button UI
             const span = propCheckedBtn.querySelector('span')
             if (field.checked) {
-                propCheckedBtn.classList.remove('bg-gray-500')
+                propCheckedBtn.classList.remove('bg-gray-300')
                 propCheckedBtn.classList.add('bg-indigo-600')
                 span?.classList.remove('translate-x-0')
                 span?.classList.add('translate-x-6')
             } else {
                 propCheckedBtn.classList.remove('bg-indigo-600')
-                propCheckedBtn.classList.add('bg-gray-500')
+                propCheckedBtn.classList.add('bg-gray-300')
                 span?.classList.remove('translate-x-6')
                 span?.classList.add('translate-x-0')
             }
@@ -1508,7 +1508,7 @@ downloadBtn.addEventListener('click', async () => {
 
         // Set document metadata for accessibility
         pdfDoc.setTitle('Fillable Form')
-        pdfDoc.setAuthor('BentoPDF')
+        pdfDoc.setAuthor('StrixPDF')
         pdfDoc.setLanguage('en-US')
 
         const radioGroups = new Map<string, any>() // Track created radio groups
@@ -2201,16 +2201,16 @@ function updatePageNavigation(): void {
 // Drag and drop handlers for upload area
 dropZone.addEventListener('dragover', (e) => {
     e.preventDefault()
-    dropZone.classList.add('border-indigo-500', 'bg-gray-600')
+    dropZone.classList.add('border-indigo-500', 'bg-gray-200')
 })
 
 dropZone.addEventListener('dragleave', () => {
-    dropZone.classList.remove('border-indigo-500', 'bg-gray-600')
+    dropZone.classList.remove('border-indigo-500', 'bg-gray-200')
 })
 
 dropZone.addEventListener('drop', (e) => {
     e.preventDefault()
-    dropZone.classList.remove('border-indigo-500', 'bg-gray-600')
+    dropZone.classList.remove('border-indigo-500', 'bg-gray-200')
     const files = e.dataTransfer?.files
     if (files && files.length > 0 && files[0].type === 'application/pdf') {
         handlePdfUpload(files[0])

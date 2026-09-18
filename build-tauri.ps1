@@ -1,4 +1,4 @@
-# Build script para PDFacil Desktop (Tauri)
+# Build script para StrixPDF Desktop (Tauri)
 # Uso: .\build-tauri.ps1 [-Debug] [-SkipDeps]
 
 param(
@@ -9,7 +9,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  PDFacil - Tauri Desktop Build" -ForegroundColor Cyan
+Write-Host "  StrixPDF - Tauri Desktop Build" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 

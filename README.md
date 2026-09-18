@@ -1,13 +1,13 @@
 <p align="center"><img src="public/images/favicon.svg" width="80"></p>
-<h1 align="center">PDFácil</h1>
+<h1 align="center">StrixPDF</h1>
 
-**PDFácil** é um aplicativo desktop gratuito e completo para manipular, editar, mesclar, converter e processar arquivos PDF. Todo o processamento acontece localmente na sua máquina — seus arquivos nunca saem do seu computador.
+**StrixPDF** é um aplicativo desktop gratuito e completo para manipular, editar, mesclar, converter e processar arquivos PDF. Todo o processamento acontece localmente na sua máquina — seus arquivos nunca saem do seu computador.
 
 Construído com [Tauri](https://tauri.app/), combina uma interface web moderna com a performance e segurança de um app nativo.
 
 ---
 
-## Por que PDFácil?
+## Por que StrixPDF?
 
 - **Privacidade total**: Todo processamento é local. Seus arquivos nunca são enviados para nenhum servidor.
 - **Sem limites**: Manipule quantos arquivos quiser, sem restrições.
@@ -129,8 +129,8 @@ Construído com [Tauri](https://tauri.app/), combina uma interface web moderna c
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/PDFacil.git
-cd PDFacil
+git clone https://github.com/seu-usuario/StrixPDF.git
+cd StrixPDF
 
 # Instale as dependências
 npm install
@@ -188,7 +188,11 @@ Estilo de código aplicado via Prettier (2 espaços, aspas simples, vírgulas tr
 
 ## Agradecimentos
 
-PDFácil não seria possível sem as bibliotecas open-source que o sustentam:
+StrixPDF é um fork do [BentoPDF](https://github.com/alam00000/bentopdf), criado por
+[@alam00000](https://github.com/alam00000). Todo o trabalho original de arquitetura e
+das ferramentas de PDF vem daquele projeto.
+
+E não seria possível sem as bibliotecas open-source que o sustentam:
 
 - [pdf-lib](https://pdf-lib.js.org/) — Manipulação de PDFs no cliente
 - [PDF.js](https://mozilla.github.io/pdf.js/) — Motor de renderização de PDF no navegador

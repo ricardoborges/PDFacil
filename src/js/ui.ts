@@ -166,7 +166,7 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
 
         const imgContainer = document.createElement('div');
         imgContainer.className =
-            'w-full h-36 bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden border-2 border-gray-600';
+            'w-full h-36 bg-gray-50 rounded-lg flex items-center justify-center overflow-hidden border-2 border-gray-300';
 
         const img = document.createElement('img');
         img.src = canvas.toDataURL();
@@ -180,7 +180,7 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
 
             const pageNumSpan = document.createElement('span');
             pageNumSpan.className =
-                'absolute top-1 left-1 bg-gray-900 bg-opacity-75 text-white text-xs rounded-full px-2 py-1';
+                'absolute top-1 left-1 bg-gray-900 bg-opacity-70 text-white text-xs rounded-full px-2 py-1';
             pageNumSpan.textContent = pageNumber.toString();
 
             const deleteBtn = document.createElement('button');
@@ -224,7 +224,7 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
             // Page Number Overlay (Top Left)
             const pageNumSpan = document.createElement('span');
             pageNumSpan.className =
-                'absolute top-2 left-2 bg-gray-900 bg-opacity-75 text-white text-xs font-medium rounded-md px-2 py-1 shadow-sm z-10 pointer-events-none';
+                'absolute top-2 left-2 bg-gray-900 bg-opacity-70 text-white text-xs font-medium rounded-md px-2 py-1 shadow-sm z-10 pointer-events-none';
             pageNumSpan.textContent = pageNumber.toString();
             wrapper.appendChild(pageNumSpan);
 
@@ -233,20 +233,20 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
 
             // Custom Stepper Component
             const stepperContainer = document.createElement('div');
-            stepperContainer.className = 'flex items-center border border-gray-600 rounded-md bg-gray-800 overflow-hidden w-24 h-8';
+            stepperContainer.className = 'flex items-center border border-gray-300 rounded-md bg-white overflow-hidden w-24 h-8';
 
             const decrementBtn = document.createElement('button');
-            decrementBtn.className = 'px-2 h-full text-gray-400 hover:text-white hover:bg-gray-700 border-r border-gray-600 transition-colors flex items-center justify-center';
+            decrementBtn.className = 'px-2 h-full text-gray-600 hover:text-gray-900 hover:bg-gray-100 border-r border-gray-300 transition-colors flex items-center justify-center';
             decrementBtn.innerHTML = '<i data-lucide="minus" class="w-3 h-3"></i>';
 
             const angleInput = document.createElement('input');
             angleInput.type = 'number';
-            angleInput.className = 'no-spinner w-full h-full bg-transparent text-white text-xs text-center focus:outline-none appearance-none m-0 p-0 border-none';
+            angleInput.className = 'no-spinner w-full h-full bg-transparent text-gray-900 text-xs text-center focus:outline-none appearance-none m-0 p-0 border-none';
             angleInput.value = initialRotation.toString();
             angleInput.placeholder = "0";
 
             const incrementBtn = document.createElement('button');
-            incrementBtn.className = 'px-2 h-full text-gray-400 hover:text-white hover:bg-gray-700 border-l border-gray-600 transition-colors flex items-center justify-center';
+            incrementBtn.className = 'px-2 h-full text-gray-600 hover:text-gray-900 hover:bg-gray-100 border-l border-gray-300 transition-colors flex items-center justify-center';
             incrementBtn.innerHTML = '<i data-lucide="plus" class="w-3 h-3"></i>';
 
             // Helper to update rotation
@@ -287,7 +287,7 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
             stepperContainer.append(decrementBtn, angleInput, incrementBtn);
 
             const rotateBtn = document.createElement('button');
-            rotateBtn.className = 'rotate-btn btn bg-gray-700 hover:bg-gray-600 p-1.5 rounded-md text-gray-200 transition-colors flex-shrink-0';
+            rotateBtn.className = 'rotate-btn btn bg-gray-100 hover:bg-gray-200 p-1.5 rounded-md text-gray-800 transition-colors flex-shrink-0';
             rotateBtn.title = 'Rotate +90°';
             rotateBtn.innerHTML = '<i data-lucide="rotate-cw" class="w-4 h-4"></i>';
             rotateBtn.addEventListener('click', (e) => {
@@ -303,13 +303,13 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
             wrapper.dataset.pageNumber = pageNumber.toString();
 
             const innerContainer = document.createElement('div');
-            innerContainer.className = 'relative w-full h-36 bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden border-2 border-gray-600 transition-colors duration-200';
+            innerContainer.className = 'relative w-full h-36 bg-gray-50 rounded-lg flex items-center justify-center overflow-hidden border-2 border-gray-300 transition-colors duration-200';
             innerContainer.appendChild(img);
             wrapper.appendChild(innerContainer);
 
             const pageNumSpan = document.createElement('span');
             pageNumSpan.className =
-                'absolute top-2 left-2 bg-gray-900 bg-opacity-75 text-white text-xs font-medium rounded-md px-2 py-1 shadow-sm z-10 pointer-events-none';
+                'absolute top-2 left-2 bg-gray-900 bg-opacity-70 text-white text-xs font-medium rounded-md px-2 py-1 shadow-sm z-10 pointer-events-none';
             pageNumSpan.textContent = pageNumber.toString();
             wrapper.appendChild(pageNumSpan);
 
@@ -391,14 +391,14 @@ export const renderFileDisplay = (container: any, files: any) => {
         files.forEach((file: any) => {
             const fileDiv = document.createElement('div');
             fileDiv.className =
-                'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+                'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
             const nameSpan = document.createElement('span');
-            nameSpan.className = 'truncate font-medium text-gray-200';
+            nameSpan.className = 'truncate font-medium text-gray-800';
             nameSpan.textContent = file.name;
 
             const sizeSpan = document.createElement('span');
-            sizeSpan.className = 'flex-shrink-0 ml-4 text-gray-400';
+            sizeSpan.className = 'flex-shrink-0 ml-4 text-gray-600';
             sizeSpan.textContent = formatBytes(file.size);
 
             fileDiv.append(nameSpan, sizeSpan);
@@ -416,10 +416,10 @@ const createFileInputHTML = (options = {}) => {
     const showControls = options.showControls || false; // NEW: Add this parameter
 
     return `
-        <div id="drop-zone" class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-900 hover:bg-gray-700 transition-colors duration-300">
+        <div id="drop-zone" class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
             <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-400"></i>
-                <p class="mb-2 text-sm text-gray-400"><span class="font-semibold">${t('upload.clickToSelect')}</span> ${t('upload.orDragAndDrop')}</p>
+                <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-600"></i>
+                <p class="mb-2 text-sm text-gray-600"><span class="font-semibold">${t('upload.clickToSelect')}</span> ${t('upload.orDragAndDrop')}</p>
                 <p class="text-xs text-gray-500">${multiple ? t('upload.pdfOrImages') : 'A single PDF file'}</p>
                 <p class="text-xs text-gray-500">${t('upload.filesNeverLeave')}</p>
             </div>

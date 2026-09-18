@@ -81,17 +81,17 @@ function renderSummary() {
 
     let summaryHTML = `
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-      <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-        <p class="text-sm text-gray-400 mb-1">Total Pages</p>
-        <p class="text-2xl font-bold text-white">${stats.totalPages}</p>
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+        <p class="text-sm text-gray-600 mb-1">Total Pages</p>
+        <p class="text-2xl font-bold text-gray-900">${stats.totalPages}</p>
       </div>
-      <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-        <p class="text-sm text-gray-400 mb-1">Unique Page Sizes</p>
-        <p class="text-2xl font-bold text-white">${stats.uniqueSizesCount}</p>
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+        <p class="text-sm text-gray-600 mb-1">Unique Page Sizes</p>
+        <p class="text-2xl font-bold text-gray-900">${stats.uniqueSizesCount}</p>
       </div>
-      <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-        <p class="text-sm text-gray-400 mb-1">Document Type</p>
-        <p class="text-2xl font-bold ${stats.hasMixedSizes ? 'text-yellow-400' : 'text-green-400'}">
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+        <p class="text-sm text-gray-600 mb-1">Document Type</p>
+        <p class="text-2xl font-bold ${stats.hasMixedSizes ? 'text-yellow-600' : 'text-green-600'}">
           ${stats.hasMixedSizes ? 'Mixed Sizes' : 'Uniform'}
         </p>
       </div>
@@ -100,13 +100,13 @@ function renderSummary() {
 
     if (stats.hasMixedSizes) {
         summaryHTML += `
-      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mb-4">
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
         <div class="flex items-start gap-3">
-          <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+          <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0"></i>
           <div>
-            <h4 class="text-yellow-200 font-semibold mb-2">Mixed Page Sizes Detected</h4>
-            <p class="text-sm text-gray-300 mb-3">This document contains pages with different dimensions:</p>
-            <ul class="space-y-1 text-sm text-gray-300">
+            <h4 class="text-yellow-700 font-semibold mb-2">Mixed Page Sizes Detected</h4>
+            <p class="text-sm text-gray-700 mb-3">This document contains pages with different dimensions:</p>
+            <ul class="space-y-1 text-sm text-gray-700">
               ${stats.uniqueSizes.map((size: any) => `
                 <li>• ${size.label}: ${size.count} page${size.count > 1 ? 's' : ''}</li>
               `).join('')}
@@ -139,31 +139,31 @@ function renderTable(unit: string) {
         const row = document.createElement('tr');
 
         const pageNumCell = document.createElement('td');
-        pageNumCell.className = 'px-4 py-3 text-white';
+        pageNumCell.className = 'px-4 py-3 text-gray-900';
         pageNumCell.textContent = pageData.pageNum;
 
         const dimensionsCell = document.createElement('td');
-        dimensionsCell.className = 'px-4 py-3 text-gray-300';
+        dimensionsCell.className = 'px-4 py-3 text-gray-700';
         dimensionsCell.textContent = `${width} x ${height} ${unit}`;
 
         const sizeCell = document.createElement('td');
-        sizeCell.className = 'px-4 py-3 text-gray-300';
+        sizeCell.className = 'px-4 py-3 text-gray-700';
         sizeCell.textContent = pageData.standardSize;
 
         const orientationCell = document.createElement('td');
-        orientationCell.className = 'px-4 py-3 text-gray-300';
+        orientationCell.className = 'px-4 py-3 text-gray-700';
         orientationCell.textContent = pageData.orientation;
 
         const aspectRatioCell = document.createElement('td');
-        aspectRatioCell.className = 'px-4 py-3 text-gray-300';
+        aspectRatioCell.className = 'px-4 py-3 text-gray-700';
         aspectRatioCell.textContent = aspectRatio;
 
         const areaCell = document.createElement('td');
-        areaCell.className = 'px-4 py-3 text-gray-300';
+        areaCell.className = 'px-4 py-3 text-gray-700';
         areaCell.textContent = area;
 
         const rotationCell = document.createElement('td');
-        rotationCell.className = 'px-4 py-3 text-gray-300';
+        rotationCell.className = 'px-4 py-3 text-gray-700';
         rotationCell.textContent = `${pageData.rotation}°`;
 
         row.append(pageNumCell, dimensionsCell, sizeCell, orientationCell, aspectRatioCell, areaCell, rotationCell);
@@ -273,23 +273,23 @@ async function updateUI() {
 
     if (pageState.file) {
         const fileDiv = document.createElement('div');
-        fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+        fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
         const infoContainer = document.createElement('div');
         infoContainer.className = 'flex flex-col overflow-hidden';
 
         const nameSpan = document.createElement('div');
-        nameSpan.className = 'truncate font-medium text-gray-200 text-sm mb-1';
+        nameSpan.className = 'truncate font-medium text-gray-800 text-sm mb-1';
         nameSpan.textContent = pageState.file.name;
 
         const metaSpan = document.createElement('div');
-        metaSpan.className = 'text-xs text-gray-400';
+        metaSpan.className = 'text-xs text-gray-600';
         metaSpan.textContent = formatBytes(pageState.file.size);
 
         infoContainer.append(nameSpan, metaSpan);
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+        removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
         removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
         removeBtn.onclick = function () {
             resetState();
@@ -338,17 +338,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         dropZone.addEventListener('dragover', function (e) {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             handleFileSelect(e.dataTransfer?.files);
         });
 

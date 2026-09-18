@@ -1,4 +1,4 @@
-# Simple Mode for BentoPDF
+# Simple Mode for StrixPDF
 
 Simple Mode is designed for internal organizational use where you want to hide all branding and marketing content, showing only the essential PDF tools for your users.
 
@@ -26,25 +26,25 @@ Use the pre-built Simple Mode image directly:
 **Using Docker Hub:**
 
 ```bash
-docker run -p 3000:8080 bentopdf/bentopdf-simple:latest
+docker run -p 3000:8080 strixpdf/strixpdf-simple:latest
 ```
 
 **Using GitHub Container Registry:**
 
 ```bash
-docker run -p 3000:8080 ghcr.io/alam00000/bentopdf-simple:latest
+docker run -p 3000:8080 ghcr.io/ricardoborges/strixpdf-simple:latest
 ```
 
 Or with Docker Compose:
 
 ```yaml
 services:
-  bentopdf:
+  strixpdf:
     # Using Docker Hub
-    image: bentopdf/bentopdf-simple:latest
+    image: strixpdf/strixpdf-simple:latest
     # Or using GitHub Container Registry
-    # image: ghcr.io/alam00000/bentopdf-simple:latest
-    container_name: bentopdf
+    # image: ghcr.io/ricardoborges/strixpdf-simple:latest
+    container_name: strixpdf
     restart: unless-stopped
     ports:
       - '3000:8080'
@@ -64,8 +64,8 @@ docker compose -f docker-compose.dev.yml up -d
 Build the image with the SIMPLE_MODE build argument:
 
 ```bash
-docker build --build-arg SIMPLE_MODE=true -t bentopdf-simple .
-docker run -p 3000:8080 bentopdf-simple
+docker build --build-arg SIMPLE_MODE=true -t strixpdf-simple .
+docker run -p 3000:8080 strixpdf-simple
 ```
 
 ### Method 4: Using npm Script (Easiest for Local Development)
@@ -106,8 +106,8 @@ This automatically builds and serves Simple Mode on `http://localhost:3000`.
 
 ```bash
 # Pull and run the Simple Mode image
-docker pull bentopdf/bentopdf-simple:latest
-docker run -p 3000:8080 bentopdf/bentopdf-simple:latest
+docker pull strixpdf/strixpdf-simple:latest
+docker run -p 3000:8080 strixpdf/strixpdf-simple:latest
 ```
 
 Open `http://localhost:3000` in your browser.
@@ -128,10 +128,10 @@ Open `http://localhost:3000` in your browser.
 
 ```bash
 # Test Normal Mode
-docker run -p 3000:8080 bentopdf/bentopdf:latest
+docker run -p 3000:8080 strixpdf/strixpdf:latest
 
 # Test Simple Mode
-docker run -p 3001:8080 bentopdf/bentopdf-simple:latest
+docker run -p 3001:8080 strixpdf/strixpdf-simple:latest
 ```
 
 - Normal Mode: `http://localhost:3000`
@@ -155,25 +155,25 @@ When Simple Mode is working correctly, you should see:
 
 **Docker Hub:**
 
-- `bentopdf/bentopdf:latest`
-- `bentopdf/bentopdf:v1.0.0` (versioned)
+- `strixpdf/strixpdf:latest`
+- `strixpdf/strixpdf:v1.0.0` (versioned)
 
 **GitHub Container Registry:**
 
-- `ghcr.io/alam00000/bentopdf:latest`
-- `ghcr.io/alam00000/bentopdf:v1.0.0` (versioned)
+- `ghcr.io/ricardoborges/strixpdf:latest`
+- `ghcr.io/ricardoborges/strixpdf:v1.0.0` (versioned)
 
 ### Simple Mode (Clean Interface)
 
 **Docker Hub:**
 
-- `bentopdf/bentopdf-simple:latest`
-- `bentopdf/bentopdf-simple:v1.0.0` (versioned)
+- `strixpdf/strixpdf-simple:latest`
+- `strixpdf/strixpdf-simple:v1.0.0` (versioned)
 
 **GitHub Container Registry:**
 
-- `ghcr.io/alam00000/bentopdf-simple:latest`
-- `ghcr.io/alam00000/bentopdf-simple:v1.0.0` (versioned)
+- `ghcr.io/ricardoborges/strixpdf-simple:latest`
+- `ghcr.io/ricardoborges/strixpdf-simple:v1.0.0` (versioned)
 
 ## 🚀 Production Deployment Examples
 
@@ -181,9 +181,9 @@ When Simple Mode is working correctly, you should see:
 
 ```yaml
 services:
-  bentopdf:
-    image: bentopdf/bentopdf-simple:latest
-    container_name: bentopdf
+  strixpdf:
+    image: strixpdf/strixpdf-simple:latest
+    container_name: strixpdf
     restart: unless-stopped
     ports:
       - '80:80'
@@ -194,7 +194,7 @@ services:
 
 ## ⚠️ Important Notes
 
-- **Pre-built images**: Use `bentopdf/bentopdf-simple:latest` for Simple Mode
+- **Pre-built images**: Use `strixpdf/strixpdf-simple:latest` for Simple Mode
 - **Environment variables**: `SIMPLE_MODE=true` only works during build, not runtime
 - **Build-time optimization**: Simple Mode uses dead code elimination for smaller bundles
 - **Same functionality**: All PDF tools work identically in both modes

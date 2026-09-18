@@ -1,6 +1,6 @@
-# PDFácil - Versão Desktop
+# StrixPDF - Versão Desktop
 
-O PDFácil pode ser compilado como um aplicativo desktop nativo usando o [Tauri](https://tauri.app/), uma framework que cria aplicativos desktop leves e seguros usando tecnologias web.
+O StrixPDF pode ser compilado como um aplicativo desktop nativo usando o [Tauri](https://tauri.app/), uma framework que cria aplicativos desktop leves e seguros usando tecnologias web.
 
 ## Pré-requisitos
 
@@ -58,19 +58,19 @@ Isso irá:
 
 | Windows | Localização |
 |---------|-------------|
-| MSI Installer | `src-tauri/target/release/bundle/msi/PDFácil_1.0.0_x64_pt-BR.msi` |
-| NSIS Installer | `src-tauri/target/release/bundle/nsis/PDFácil_1.0.0_x64-setup.exe` |
+| MSI Installer | `src-tauri/target/release/bundle/msi/StrixPDF_1.0.0_x64_pt-BR.msi` |
+| NSIS Installer | `src-tauri/target/release/bundle/nsis/StrixPDF_1.0.0_x64-setup.exe` |
 
 | macOS | Localização |
 |-------|-------------|
-| DMG | `src-tauri/target/release/bundle/dmg/PDFácil_1.0.0_x64.dmg` |
-| App Bundle | `src-tauri/target/release/bundle/macos/PDFácil.app` |
+| DMG | `src-tauri/target/release/bundle/dmg/StrixPDF_1.0.0_x64.dmg` |
+| App Bundle | `src-tauri/target/release/bundle/macos/StrixPDF.app` |
 
 | Linux | Localização |
 |-------|-------------|
-| AppImage | `src-tauri/target/release/bundle/appimage/pdfacil_1.0.0_amd64.AppImage` |
-| Debian Package | `src-tauri/target/release/bundle/deb/pdfacil_1.0.0_amd64.deb` |
-| RPM Package | `src-tauri/target/release/bundle/rpm/pdfacil-1.0.0-1.x86_64.rpm` |
+| AppImage | `src-tauri/target/release/bundle/appimage/strixpdf_1.0.0_amd64.AppImage` |
+| Debian Package | `src-tauri/target/release/bundle/deb/strixpdf_1.0.0_amd64.deb` |
+| RPM Package | `src-tauri/target/release/bundle/rpm/strixpdf-1.0.0-1.x86_64.rpm` |
 
 ## Estrutura do Projeto Tauri
 
@@ -99,7 +99,7 @@ O arquivo `src-tauri/tauri.conf.json` contém as configurações principais:
 
 - **productName**: Nome do aplicativo
 - **version**: Versão do aplicativo
-- **identifier**: Identificador único (com.pdfacil.app)
+- **identifier**: Identificador único (com.strixpdf.app)
 - **windows**: Configurações da janela (dimensões, título)
 - **bundle**: Configurações de empacotamento
 

@@ -172,16 +172,16 @@ const showTauriSuccessModal = (filePath: string): void => {
   // Create a simple success modal
   const modal = document.createElement('div');
   modal.id = 'tauri-success-modal';
-  modal.className = 'fixed inset-0 bg-gray-900 bg-opacity-90 flex items-center justify-center z-50';
+  modal.className = 'fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50';
   modal.innerHTML = `
-    <div class="bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full border border-gray-700 mx-4">
+    <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full border border-gray-200 mx-4">
       <div class="flex items-center gap-3 mb-4">
         <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
-        <h3 class="text-xl font-bold text-white">Arquivo salvo com sucesso!</h3>
+        <h3 class="text-xl font-bold text-gray-900">Arquivo salvo com sucesso!</h3>
       </div>
-      <p class="text-gray-400 text-sm mb-4 break-all">${filePath}</p>
+      <p class="text-gray-600 text-sm mb-4 break-all">${filePath}</p>
       <button id="close-success-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
         Fechar
       </button>

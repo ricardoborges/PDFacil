@@ -22,24 +22,24 @@ const updateUI = () => {
 
         files.forEach((file) => {
             const fileDiv = document.createElement('div');
-            fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+            fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
             const infoContainer = document.createElement('div');
             infoContainer.className = 'flex flex-col overflow-hidden';
 
             const nameSpan = document.createElement('div');
-            nameSpan.className = 'truncate font-medium text-gray-200 text-sm mb-1';
+            nameSpan.className = 'truncate font-medium text-gray-800 text-sm mb-1';
             nameSpan.textContent = file.name;
 
             const metaSpan = document.createElement('div');
-            metaSpan.className = 'text-xs text-gray-400';
+            metaSpan.className = 'text-xs text-gray-600';
             metaSpan.textContent = `${formatBytes(file.size)} • Loading pages...`; // Initial state
 
             infoContainer.append(nameSpan, metaSpan);
 
             // Add remove button
             const removeBtn = document.createElement('button');
-            removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+            removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
             removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
             removeBtn.onclick = () => {
                 files = [];
@@ -154,17 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             handleFileSelect(e.dataTransfer?.files ?? null);
         });
 

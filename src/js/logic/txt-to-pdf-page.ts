@@ -36,18 +36,18 @@ const updateUI = () => {
 
         files.forEach((file, index) => {
             const fileDiv = document.createElement('div');
-            fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+            fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
             const infoSpan = document.createElement('span');
-            infoSpan.className = 'truncate font-medium text-gray-200';
+            infoSpan.className = 'truncate font-medium text-gray-800';
             infoSpan.textContent = file.name;
 
             const sizeSpan = document.createElement('span');
-            sizeSpan.className = 'text-gray-400 text-xs ml-2';
+            sizeSpan.className = 'text-gray-600 text-xs ml-2';
             sizeSpan.textContent = `(${formatBytes(file.size)})`;
 
             const removeBtn = document.createElement('button');
-            removeBtn.className = 'ml-4 text-red-400 hover:text-red-300';
+            removeBtn.className = 'ml-4 text-red-600 hover:text-red-800';
             removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
             removeBtn.onclick = () => {
                 files = files.filter((_, i) => i !== index);
@@ -302,20 +302,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (uploadModeBtn && textModeBtn && uploadPanel && textPanel) {
         uploadModeBtn.addEventListener('click', () => {
             currentMode = 'upload';
-            uploadModeBtn.classList.remove('bg-gray-700', 'text-gray-300');
-            uploadModeBtn.classList.add('bg-indigo-600', 'text-white');
-            textModeBtn.classList.remove('bg-indigo-600', 'text-white');
-            textModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+            uploadModeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+            uploadModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+            textModeBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+            textModeBtn.classList.add('bg-gray-100', 'text-gray-700');
             uploadPanel.classList.remove('hidden');
             textPanel.classList.add('hidden');
         });
 
         textModeBtn.addEventListener('click', () => {
             currentMode = 'text';
-            textModeBtn.classList.remove('bg-gray-700', 'text-gray-300');
-            textModeBtn.classList.add('bg-indigo-600', 'text-white');
-            uploadModeBtn.classList.remove('bg-indigo-600', 'text-white');
-            uploadModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+            textModeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+            textModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+            uploadModeBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+            uploadModeBtn.classList.add('bg-gray-100', 'text-gray-700');
             textPanel.classList.remove('hidden');
             uploadPanel.classList.add('hidden');
         });
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate language list
         allLanguages.forEach(lang => {
             const label = document.createElement('label');
-            label.className = 'flex items-center gap-2 p-2 hover:bg-gray-700 rounded cursor-pointer';
+            label.className = 'flex items-center gap-2 p-2 hover:bg-gray-100 rounded cursor-pointer';
 
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const span = document.createElement('span');
             span.textContent = lang.name;
-            span.className = 'text-sm text-gray-300';
+            span.className = 'text-sm text-gray-700';
 
             label.append(checkbox, span);
             langContainer.appendChild(label);
@@ -425,17 +425,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             handleFileSelect(e.dataTransfer?.files ?? null);
         });
 

@@ -60,7 +60,7 @@ function createPageWrapper(canvas: HTMLCanvasElement, pageNumber: number): HTMLE
     const pageIndex = pageNumber - 1;
 
     const container = document.createElement('div');
-    container.className = 'page-thumbnail relative bg-gray-700 rounded-lg overflow-hidden';
+    container.className = 'page-thumbnail relative bg-gray-100 rounded-lg overflow-hidden';
     container.dataset.pageIndex = pageIndex.toString();
     container.dataset.pageNumber = pageNumber.toString();
 
@@ -80,10 +80,10 @@ function createPageWrapper(canvas: HTMLCanvasElement, pageNumber: number): HTMLE
 
     // Per-page rotation controls
     const controls = document.createElement('div');
-    controls.className = 'flex items-center justify-center gap-1 p-2 bg-gray-800';
+    controls.className = 'flex items-center justify-center gap-1 p-2 bg-white';
 
     const decrementBtn = document.createElement('button');
-    decrementBtn.className = 'w-8 h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white rounded border border-gray-600 text-sm';
+    decrementBtn.className = 'w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-900 rounded border border-gray-300 text-sm';
     decrementBtn.textContent = '−';
     decrementBtn.onclick = function (e) {
         e.stopPropagation();
@@ -96,10 +96,10 @@ function createPageWrapper(canvas: HTMLCanvasElement, pageNumber: number): HTMLE
     angleInput.type = 'number';
     angleInput.id = `page-angle-${pageIndex}`;
     angleInput.value = pageState.rotations[pageIndex]?.toString() || '0';
-    angleInput.className = 'w-12 h-8 text-center bg-gray-700 border border-gray-600 text-white rounded text-xs';
+    angleInput.className = 'w-12 h-8 text-center bg-gray-100 border border-gray-300 text-gray-900 rounded text-xs';
 
     const incrementBtn = document.createElement('button');
-    incrementBtn.className = 'w-8 h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white rounded border border-gray-600 text-sm';
+    incrementBtn.className = 'w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-900 rounded border border-gray-300 text-sm';
     incrementBtn.textContent = '+';
     incrementBtn.onclick = function (e) {
         e.stopPropagation();
@@ -109,7 +109,7 @@ function createPageWrapper(canvas: HTMLCanvasElement, pageNumber: number): HTMLE
     };
 
     const applyBtn = document.createElement('button');
-    applyBtn.className = 'w-8 h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white rounded border border-gray-600';
+    applyBtn.className = 'w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-900 rounded border border-gray-300';
     applyBtn.innerHTML = '<i data-lucide="rotate-cw" class="w-4 h-4"></i>';
     applyBtn.onclick = function (e) {
         e.stopPropagation();
@@ -165,23 +165,23 @@ async function updateUI() {
 
     if (pageState.file) {
         const fileDiv = document.createElement('div');
-        fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+        fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
         const infoContainer = document.createElement('div');
         infoContainer.className = 'flex flex-col overflow-hidden';
 
         const nameSpan = document.createElement('div');
-        nameSpan.className = 'truncate font-medium text-gray-200 text-sm mb-1';
+        nameSpan.className = 'truncate font-medium text-gray-800 text-sm mb-1';
         nameSpan.textContent = pageState.file.name;
 
         const metaSpan = document.createElement('div');
-        metaSpan.className = 'text-xs text-gray-400';
+        metaSpan.className = 'text-xs text-gray-600';
         metaSpan.textContent = `${formatBytes(pageState.file.size)} • Loading...`;
 
         infoContainer.append(nameSpan, metaSpan);
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+        removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
         removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
         removeBtn.onclick = function () {
             resetState();
@@ -368,17 +368,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         dropZone.addEventListener('dragover', function (e) {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             const files = e.dataTransfer?.files;
             if (files && files.length > 0) {
                 const pdfFiles = Array.from(files).filter(function (f) {

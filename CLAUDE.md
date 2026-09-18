@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PDFacil (BentoPDF) is a privacy-first, client-side PDF toolkit that runs entirely in the browser with no server-side processing. It supports both web deployment (via Docker or self-hosting) and desktop apps via Tauri.
+StrixPDF (StrixPDF) is a privacy-first, client-side PDF toolkit that runs entirely in the browser with no server-side processing. It supports both web deployment (via Docker or self-hosting) and desktop apps via Tauri.
 
 ## Common Commands
 

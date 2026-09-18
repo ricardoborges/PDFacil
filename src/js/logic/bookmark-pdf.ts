@@ -715,10 +715,10 @@ function handleResize() {
   if (window.innerWidth >= 1024) {
     viewerSection.classList.remove('hidden');
     bookmarksSection.classList.remove('hidden');
-    showViewerBtn.classList.remove('bg-indigo-600', 'text-white');
-    showViewerBtn.classList.add('text-gray-300');
-    showBookmarksBtn.classList.remove('bg-indigo-600', 'text-white');
-    showBookmarksBtn.classList.add('text-gray-300');
+    showViewerBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+    showViewerBtn.classList.add('text-gray-700');
+    showBookmarksBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+    showBookmarksBtn.classList.add('text-gray-700');
   }
 }
 
@@ -727,19 +727,19 @@ window.addEventListener('resize', handleResize);
 showViewerBtn.addEventListener('click', () => {
   viewerSection.classList.remove('hidden');
   bookmarksSection.classList.add('hidden');
-  showViewerBtn.classList.add('bg-indigo-600', 'text-white');
-  showViewerBtn.classList.remove('text-gray-300');
-  showBookmarksBtn.classList.remove('bg-indigo-600', 'text-white');
-  showBookmarksBtn.classList.add('text-gray-300');
+  showViewerBtn.classList.add('bg-indigo-600', 'text-gray-900');
+  showViewerBtn.classList.remove('text-gray-700');
+  showBookmarksBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+  showBookmarksBtn.classList.add('text-gray-700');
 });
 
 showBookmarksBtn.addEventListener('click', () => {
   viewerSection.classList.add('hidden');
   bookmarksSection.classList.remove('hidden');
-  showBookmarksBtn.classList.add('bg-indigo-600', 'text-white');
-  showBookmarksBtn.classList.remove('text-gray-300');
-  showViewerBtn.classList.remove('bg-indigo-600', 'text-white');
-  showViewerBtn.classList.add('text-gray-300');
+  showBookmarksBtn.classList.add('bg-indigo-600', 'text-gray-900');
+  showBookmarksBtn.classList.remove('text-gray-700');
+  showViewerBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+  showViewerBtn.classList.add('text-gray-700');
 });
 
 // Dropdown toggles
@@ -869,10 +869,10 @@ function resetToUploader() {
   // Reset mobile view
   viewerSection.classList.remove('hidden');
   bookmarksSection.classList.add('hidden');
-  showViewerBtn.classList.add('bg-indigo-600', 'text-white');
-  showViewerBtn.classList.remove('text-gray-300');
-  showBookmarksBtn.classList.remove('bg-indigo-600', 'text-white');
-  showBookmarksBtn.classList.add('text-gray-300');
+  showViewerBtn.classList.add('bg-indigo-600', 'text-gray-900');
+  showViewerBtn.classList.remove('text-gray-700');
+  showBookmarksBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+  showBookmarksBtn.classList.add('text-gray-700');
 }
 
 document.addEventListener('keydown', (e) => {
@@ -1020,14 +1020,14 @@ function renderFileDisplay(file: File) {
 
   const fileDiv = document.createElement('div');
   fileDiv.className =
-    'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+    'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
   const nameSpan = document.createElement('span');
-  nameSpan.className = 'truncate font-medium text-gray-200';
+  nameSpan.className = 'truncate font-medium text-gray-800';
   nameSpan.textContent = file.name;
 
   const sizeSpan = document.createElement('span');
-  sizeSpan.className = 'flex-shrink-0 ml-4 text-gray-400';
+  sizeSpan.className = 'flex-shrink-0 ml-4 text-gray-600';
   sizeSpan.textContent = formatBytes(file.size);
 
   fileDiv.append(nameSpan, sizeSpan);
@@ -1439,7 +1439,7 @@ function createNodeElement(node, level = 0) {
   dragHandle.dataset.dragHandle = 'true';
   dragHandle.className = 'cursor-move flex-shrink-0';
   dragHandle.innerHTML =
-    '<i data-lucide="grip-vertical" class="w-4 h-4 text-gray-400"></i>';
+    '<i data-lucide="grip-vertical" class="w-4 h-4 text-gray-600"></i>';
   div.appendChild(dragHandle);
 
   if (hasChildren) {

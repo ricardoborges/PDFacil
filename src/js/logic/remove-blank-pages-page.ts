@@ -60,13 +60,13 @@ function updateFileDisplay() {
     const pageCount = pageState.pdfDoc.getPageCount();
 
     area.innerHTML = `
-        <div class="bg-gray-700 p-3 rounded-lg border border-gray-600 hover:border-indigo-500 transition-colors">
+        <div class="bg-gray-100 p-3 rounded-lg border border-gray-300 hover:border-indigo-500 transition-colors">
             <div class="flex items-center justify-between">
                 <div class="flex-1 min-w-0">
-                    <p class="truncate font-medium text-white">${pageState.file.name}</p>
-                    <p class="text-gray-400 text-sm">${fileSize} • ${pageCount} page${pageCount !== 1 ? 's' : ''}</p>
+                    <p class="truncate font-medium text-gray-900">${pageState.file.name}</p>
+                    <p class="text-gray-600 text-sm">${fileSize} • ${pageCount} page${pageCount !== 1 ? 's' : ''}</p>
                 </div>
-                <button id="remove-file" class="text-red-400 hover:text-red-300 p-2 flex-shrink-0 ml-2" title="Remove file">
+                <button id="remove-file" class="text-red-600 hover:text-red-800 p-2 flex-shrink-0 ml-2" title="Remove file">
                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                 </button>
             </div>
@@ -216,7 +216,7 @@ function updatePreviewPanel() {
                     Page ${pageIndex + 1}
                 </div>
                 <div class="absolute top-1 right-1 bg-red-500 rounded-full w-5 h-5 flex items-center justify-center check-mark">
-                    <i data-lucide="check" class="w-3 h-3 text-white"></i>
+                    <i data-lucide="check" class="w-3 h-3 text-gray-900"></i>
                 </div>
             </div>
         `;
@@ -236,12 +236,12 @@ function togglePageSelection(div: HTMLElement, pageIndex: number) {
     if (isSelected) {
         div.dataset.selected = 'false';
         border?.classList.remove('border-red-500');
-        border?.classList.add('border-gray-500', 'opacity-50');
+        border?.classList.add('border-gray-400', 'opacity-50');
         checkMark?.classList.add('hidden');
     } else {
         div.dataset.selected = 'true';
         border?.classList.add('border-red-500');
-        border?.classList.remove('border-gray-500', 'opacity-50');
+        border?.classList.remove('border-gray-400', 'opacity-50');
         checkMark?.classList.remove('hidden');
     }
 }

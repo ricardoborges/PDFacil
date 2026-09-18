@@ -15,9 +15,9 @@ export const createLanguageSwitcher = (): HTMLElement => {
     const button = document.createElement('button');
     button.className = `
     inline-flex items-center gap-1.5 text-sm font-medium
-    bg-gray-800 text-gray-200 border border-gray-600
+    bg-white text-gray-800 border border-gray-300
     px-3 py-1.5 rounded-full transition-colors duration-200
-    shadow-sm hover:shadow-md hover:bg-gray-700
+    shadow-sm hover:shadow-md hover:bg-gray-100
   `.trim();
     button.setAttribute('aria-haspopup', 'true');
     button.setAttribute('aria-expanded', 'false');
@@ -39,7 +39,7 @@ export const createLanguageSwitcher = (): HTMLElement => {
     const dropdown = document.createElement('div');
     dropdown.className = `
     hidden absolute right-0 mt-2 w-40 rounded-lg
-    bg-gray-800 border border-gray-700 shadow-xl
+    bg-white border border-gray-200 shadow-xl
     py-1 z-50
   `.trim();
     dropdown.setAttribute('role', 'menu');
@@ -47,9 +47,9 @@ export const createLanguageSwitcher = (): HTMLElement => {
     supportedLanguages.forEach((lang) => {
         const option = document.createElement('button');
         option.className = `
-      w-full px-4 py-2 text-left text-sm text-gray-200
-      hover:bg-gray-700 flex items-center gap-2
-      ${lang === currentLang ? 'bg-gray-700' : ''}
+      w-full px-4 py-2 text-left text-sm text-gray-800
+      hover:bg-gray-100 flex items-center gap-2
+      ${lang === currentLang ? 'bg-gray-100' : ''}
     `.trim();
         option.setAttribute('role', 'menuitem');
 
@@ -118,9 +118,9 @@ export const injectLanguageSwitcher = (): void => {
             if (button) {
                 button.className = `
                     flex items-center justify-between w-full text-sm font-medium
-                    bg-gray-800 text-gray-400 border border-gray-700
+                    bg-white text-gray-600 border border-gray-200
                     px-3 py-2 rounded-lg transition-colors duration-200
-                    hover:text-white hover:border-gray-600
+                    hover:text-gray-900 hover:border-gray-300
                 `.trim();
             }
 

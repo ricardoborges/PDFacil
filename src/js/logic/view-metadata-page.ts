@@ -33,10 +33,10 @@ function createSection(title: string): { wrapper: HTMLDivElement; ul: HTMLUListE
     const wrapper = document.createElement('div');
     wrapper.className = 'mb-6';
     const h3 = document.createElement('h3');
-    h3.className = 'text-lg font-semibold text-white mb-2';
+    h3.className = 'text-lg font-semibold text-gray-900 mb-2';
     h3.textContent = title;
     const ul = document.createElement('ul');
-    ul.className = 'space-y-3 text-sm bg-gray-900 p-4 rounded-lg border border-gray-700';
+    ul.className = 'space-y-3 text-sm bg-gray-50 p-4 rounded-lg border border-gray-200';
     wrapper.append(h3, ul);
     return { wrapper, ul };
 }
@@ -45,10 +45,10 @@ function createListItem(key: string, value: string): HTMLLIElement {
     const li = document.createElement('li');
     li.className = 'flex flex-col sm:flex-row';
     const strong = document.createElement('strong');
-    strong.className = 'w-40 flex-shrink-0 text-gray-400';
+    strong.className = 'w-40 flex-shrink-0 text-gray-600';
     strong.textContent = key;
     const div = document.createElement('div');
-    div.className = 'flex-grow text-white break-all';
+    div.className = 'flex-grow text-gray-900 break-all';
     div.textContent = value;
     li.append(strong, div);
     return li;
@@ -76,12 +76,12 @@ function createXmpListItem(key: string, value: string, indent: number = 0): HTML
     li.className = 'flex flex-col sm:flex-row';
 
     const strong = document.createElement('strong');
-    strong.className = 'w-56 flex-shrink-0 text-gray-400';
+    strong.className = 'w-56 flex-shrink-0 text-gray-600';
     strong.textContent = key;
     strong.style.paddingLeft = `${indent * 1.2}rem`;
 
     const div = document.createElement('div');
-    div.className = 'flex-grow text-white break-all';
+    div.className = 'flex-grow text-gray-900 break-all';
     div.textContent = value;
 
     li.append(strong, div);
@@ -92,7 +92,7 @@ function createXmpHeaderItem(key: string, indent: number = 0): HTMLLIElement {
     const li = document.createElement('li');
     li.className = 'flex pt-2';
     const strong = document.createElement('strong');
-    strong.className = 'w-full flex-shrink-0 text-gray-300 font-medium';
+    strong.className = 'w-full flex-shrink-0 text-gray-700 font-medium';
     strong.textContent = key;
     strong.style.paddingLeft = `${indent * 1.2}rem`;
     li.append(strong);
@@ -228,7 +228,7 @@ async function displayMetadata() {
                 console.error('Failed to parse XMP XML:', xmlError);
                 xmpSection.ul.innerHTML = `<li><span class="text-red-500 italic">- Error parsing XMP XML. Displaying raw. -</span></li>`;
                 const pre = document.createElement('pre');
-                pre.className = 'text-xs text-gray-300 whitespace-pre-wrap break-all';
+                pre.className = 'text-xs text-gray-700 whitespace-pre-wrap break-all';
                 pre.textContent = rawXmpString;
                 xmpSection.ul.appendChild(pre);
             }
@@ -256,23 +256,23 @@ async function updateUI() {
 
     if (pageState.file) {
         const fileDiv = document.createElement('div');
-        fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+        fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
         const infoContainer = document.createElement('div');
         infoContainer.className = 'flex flex-col overflow-hidden';
 
         const nameSpan = document.createElement('div');
-        nameSpan.className = 'truncate font-medium text-gray-200 text-sm mb-1';
+        nameSpan.className = 'truncate font-medium text-gray-800 text-sm mb-1';
         nameSpan.textContent = pageState.file.name;
 
         const metaSpan = document.createElement('div');
-        metaSpan.className = 'text-xs text-gray-400';
+        metaSpan.className = 'text-xs text-gray-600';
         metaSpan.textContent = `${formatBytes(pageState.file.size)}`;
 
         infoContainer.append(nameSpan, metaSpan);
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+        removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
         removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
         removeBtn.onclick = function () {
             resetState();
@@ -329,17 +329,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         dropZone.addEventListener('dragover', function (e) {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             const files = e.dataTransfer?.files;
             if (files && files.length > 0) {
                 const pdfFiles = Array.from(files).filter(function (f) {

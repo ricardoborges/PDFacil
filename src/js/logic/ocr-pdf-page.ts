@@ -346,23 +346,23 @@ async function updateUI() {
 
     if (pageState.file) {
         const fileDiv = document.createElement('div');
-        fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+        fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
         const infoContainer = document.createElement('div');
         infoContainer.className = 'flex flex-col overflow-hidden';
 
         const nameSpan = document.createElement('div');
-        nameSpan.className = 'truncate font-medium text-gray-200 text-sm mb-1';
+        nameSpan.className = 'truncate font-medium text-gray-800 text-sm mb-1';
         nameSpan.textContent = pageState.file.name;
 
         const metaSpan = document.createElement('div');
-        metaSpan.className = 'text-xs text-gray-400';
+        metaSpan.className = 'text-xs text-gray-600';
         metaSpan.textContent = formatBytes(pageState.file.size);
 
         infoContainer.append(nameSpan, metaSpan);
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+        removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
         removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
         removeBtn.onclick = function () {
             resetState();
@@ -396,12 +396,12 @@ function populateLanguageList() {
 
     Object.entries(tesseractLanguages).forEach(function ([code, name]) {
         const label = document.createElement('label');
-        label.className = 'flex items-center gap-2 p-2 rounded-md hover:bg-gray-700 cursor-pointer';
+        label.className = 'flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 cursor-pointer';
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.value = code;
-        checkbox.className = 'lang-checkbox w-4 h-4 rounded text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500';
+        checkbox.className = 'lang-checkbox w-4 h-4 rounded text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500';
 
         label.append(checkbox);
         label.append(document.createTextNode(' ' + name));
@@ -438,17 +438,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         dropZone.addEventListener('dragover', function (e) {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             const files = e.dataTransfer?.files;
             if (files && files.length > 0) {
                 const pdfFiles = Array.from(files).filter(function (f) {
@@ -530,11 +530,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const textOutput = document.getElementById('ocr-text-output') as HTMLTextAreaElement;
             if (textOutput) {
                 navigator.clipboard.writeText(textOutput.value).then(function () {
-                    copyBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-400"></i>';
+                    copyBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-600"></i>';
                     createIcons({ icons });
 
                     setTimeout(function () {
-                        copyBtn.innerHTML = '<i data-lucide="clipboard-copy" class="w-4 h-4 text-gray-300"></i>';
+                        copyBtn.innerHTML = '<i data-lucide="clipboard-copy" class="w-4 h-4 text-gray-700"></i>';
                         createIcons({ icons });
                     }, 2000);
                 });

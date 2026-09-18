@@ -48,13 +48,13 @@ function updateFileDisplay() {
         : `${(currentFile.size / 1024 / 1024).toFixed(2)} MB`;
 
     displayArea.innerHTML = `
-        <div class="bg-gray-700 p-3 rounded-lg border border-gray-600 hover:border-indigo-500 transition-colors">
+        <div class="bg-gray-100 p-3 rounded-lg border border-gray-300 hover:border-indigo-500 transition-colors">
             <div class="flex items-center justify-between">
                 <div class="flex-1 min-w-0">
-                    <p class="truncate font-medium text-white">${currentFile.name}</p>
-                    <p class="text-gray-400 text-sm">${fileSize}</p>
+                    <p class="truncate font-medium text-gray-900">${currentFile.name}</p>
+                    <p class="text-gray-600 text-sm">${fileSize}</p>
                 </div>
-                <button id="remove-file" class="text-red-400 hover:text-red-300 p-2 flex-shrink-0 ml-2" title="Remove file">
+                <button id="remove-file" class="text-red-600 hover:text-red-800 p-2 flex-shrink-0 ml-2" title="Remove file">
                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                 </button>
             </div>

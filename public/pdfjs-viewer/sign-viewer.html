@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google" content="notranslate">
-  <title>PDF Signer - Bento PDF</title>
+  <title>PDF Signer - StrixPDF</title>
   <link rel="stylesheet" href="pdf_viewer.css">
   <link rel="stylesheet" href="viewer.css">
   <style>
@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #525252;
+      background-color: #f9fafb;
     }
     
     #viewerContainer {
@@ -22,7 +22,7 @@
       bottom: 0;
       left: 0;
       overflow: auto;
-      background-color: #404040;
+      background-color: #f3f4f6;
     }
     
     .toolbar {
@@ -31,8 +31,9 @@
       left: 0;
       right: 0;
       height: 48px;
-      background-color: #323639;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      background-color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      border-bottom: 1px solid #e5e7eb;
       display: flex;
       align-items: center;
       padding: 0 10px;
@@ -41,9 +42,9 @@
     }
     
     .toolbar button {
-      background-color: rgba(255,255,255,0.1);
+      background-color: #f3f4f6;
       border: none;
-      color: #fff;
+      color: #374151;
       padding: 8px 12px;
       cursor: pointer;
       border-radius: 4px;
@@ -51,11 +52,12 @@
     }
     
     .toolbar button:hover {
-      background-color: rgba(255,255,255,0.2);
+      background-color: #e5e7eb;
     }
     
     .toolbar button.active {
       background-color: #4f46e5;
+      color: #ffffff;
     }
     
     .toolbar button:disabled {
@@ -64,7 +66,7 @@
     }
     
     .toolbar .page-info {
-      color: #fff;
+      color: #374151;
       font-size: 13px;
       margin: 0 10px;
     }
@@ -72,9 +74,9 @@
     .toolbar input[type="number"] {
       width: 60px;
       padding: 4px 8px;
-      background-color: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
+      background-color: #f3f4f6;
+      border: 1px solid #d1d5db;
+      color: #374151;
       border-radius: 4px;
       text-align: center;
     }
@@ -89,8 +91,8 @@
     
     .page {
       margin: 10px auto;
-      border: 1px solid #999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
       position: relative;
     }
     
@@ -105,23 +107,23 @@
     }
     
     .toolbar select {
-      background-color: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
+      background-color: #f3f4f6;
+      border: 1px solid #d1d5db;
+      color: #374151;
       padding: 6px 10px;
       border-radius: 4px;
       cursor: pointer;
     }
     
     .toolbar select option {
-      background-color: #323639;
-      color: #fff;
+      background-color: #ffffff;
+      color: #374151;
     }
     
     .toolbar-separator {
       width: 1px;
       height: 24px;
-      background-color: rgba(255,255,255,0.2);
+      background-color: #e5e7eb;
       margin: 0 8px;
     }
     
@@ -132,6 +134,7 @@
     
     .editor-button.active {
       background-color: #4f46e5 !important;
+      color: #ffffff !important;
     }
     
     .editor-button svg {

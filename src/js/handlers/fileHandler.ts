@@ -215,11 +215,11 @@ async function handleSinglePdfUpload(toolId, file) {
           const wrapper = document.createElement('div');
           wrapper.className = 'mb-4';
           const h3 = document.createElement('h3');
-          h3.className = 'text-lg font-semibold text-white mb-2';
+          h3.className = 'text-lg font-semibold text-gray-900 mb-2';
           h3.textContent = title;
           const ul = document.createElement('ul');
           ul.className =
-            'space-y-3 text-sm bg-gray-900 p-4 rounded-lg border border-gray-700';
+            'space-y-3 text-sm bg-gray-50 p-4 rounded-lg border border-gray-200';
           wrapper.append(h3, ul);
           return { wrapper, ul };
         };
@@ -228,10 +228,10 @@ async function handleSinglePdfUpload(toolId, file) {
           const li = document.createElement('li');
           li.className = 'flex flex-col sm:flex-row';
           const strong = document.createElement('strong');
-          strong.className = 'w-40 flex-shrink-0 text-gray-400';
+          strong.className = 'w-40 flex-shrink-0 text-gray-600';
           strong.textContent = key;
           const div = document.createElement('div');
-          div.className = 'flex-grow text-white break-all';
+          div.className = 'flex-grow text-gray-900 break-all';
           div.textContent = value;
           li.append(strong, div);
           return li;
@@ -310,12 +310,12 @@ async function handleSinglePdfUpload(toolId, file) {
           li.className = 'flex flex-col sm:flex-row';
 
           const strong = document.createElement('strong');
-          strong.className = 'w-56 flex-shrink-0 text-gray-400';
+          strong.className = 'w-56 flex-shrink-0 text-gray-600';
           strong.textContent = key;
           strong.style.paddingLeft = `${indent * 1.2}rem`;
 
           const div = document.createElement('div');
-          div.className = 'flex-grow text-white break-all';
+          div.className = 'flex-grow text-gray-900 break-all';
           div.textContent = value;
 
           li.append(strong, div);
@@ -326,7 +326,7 @@ async function handleSinglePdfUpload(toolId, file) {
           const li = document.createElement('li');
           li.className = 'flex pt-2';
           const strong = document.createElement('strong');
-          strong.className = 'w-full flex-shrink-0 text-gray-300 font-medium';
+          strong.className = 'w-full flex-shrink-0 text-gray-700 font-medium';
           strong.textContent = key;
           strong.style.paddingLeft = `${indent * 1.2}rem`;
           li.append(strong);
@@ -411,7 +411,7 @@ async function handleSinglePdfUpload(toolId, file) {
             xmpSection.ul.innerHTML = `<li><span class="text-red-500 italic">- Error parsing XMP XML. Displaying raw. -</span></li>`;
             const pre = document.createElement('pre');
             pre.className =
-              'text-xs text-gray-300 whitespace-pre-wrap break-all';
+              'text-xs text-gray-700 whitespace-pre-wrap break-all';
             pre.textContent = rawXmpString;
             xmpSection.ul.appendChild(pre);
           }
@@ -469,18 +469,18 @@ async function handleSinglePdfUpload(toolId, file) {
         keyInput.type = 'text';
         keyInput.placeholder = 'Key (e.g., Department)';
         keyInput.className =
-          'custom-meta-key w-full sm:w-1/3 bg-gray-800 border border-gray-600 text-white rounded-lg p-2';
+          'custom-meta-key w-full sm:w-1/3 bg-white border border-gray-300 text-gray-900 rounded-lg p-2';
 
         const valueInput = document.createElement('input');
         valueInput.type = 'text';
         valueInput.placeholder = 'Value (e.g., Marketing)';
         valueInput.className =
-          'custom-meta-value w-full sm:flex-grow bg-gray-800 border border-gray-600 text-white rounded-lg p-2';
+          'custom-meta-value w-full sm:flex-grow bg-white border border-gray-300 text-gray-900 rounded-lg p-2';
 
         const removeBtn = document.createElement('button');
         removeBtn.type = 'button';
         removeBtn.className =
-          'btn p-2 text-red-500 hover:bg-gray-700 rounded-full self-center sm:self-auto';
+          'btn p-2 text-red-500 hover:bg-gray-100 rounded-full self-center sm:self-auto';
         removeBtn.innerHTML = '<i data-lucide="trash-2"></i>';
         removeBtn.addEventListener('click', () => fieldWrapper.remove());
 
@@ -648,7 +648,7 @@ async function handleMultiFileUpload(toolId) {
       li.dataset.fileName = file.name;
 
       const wrapper = document.createElement('div');
-      wrapper.className = 'w-full h-36 sm:h-40 md:h-44 bg-gray-900 rounded-md border-2 border-gray-600 flex items-center justify-center overflow-hidden';
+      wrapper.className = 'w-full h-36 sm:h-40 md:h-44 bg-gray-50 rounded-md border-2 border-gray-300 flex items-center justify-center overflow-hidden';
 
       const img = document.createElement('img');
       img.src = url;

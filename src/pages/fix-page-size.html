@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fix Page Size - Standardize PDF Pages - PDFácil</title>
+    <title>Fix Page Size - Standardize PDF Pages - StrixPDF</title>
     <meta name="description"
         content="Standardize all pages in your PDF to a uniform size. Choose from standard sizes or set custom dimensions. Free, secure, and runs entirely in your browser.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
@@ -18,17 +18,17 @@
     <link href="/src/css/styles.css" rel="stylesheet" />
 </head>
 
-<body class="antialiased bg-gray-900">
-    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-30">
+<body class="antialiased bg-gray-50">
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-30">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" id="home-logo">
-                    <img src="/images/favicon.svg" alt="PDFácil Logo" class="h-8 w-8" />
-                    <span class="text-white font-bold text-xl ml-2">
-                        <a href="/">PDFácil</a>
+                    <img src="/images/favicon.svg" alt="StrixPDF Logo" class="h-8 w-8" />
+                    <span class="text-gray-900 font-bold text-xl ml-2">
+                        <a href="/">StrixPDF</a>
                     </span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8 text-white">
+                <div class="hidden md:flex items-center space-x-8 text-gray-900">
                     
                     
                     
@@ -36,7 +36,7 @@
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-button" type="button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-colors"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-colors"
                         aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1 text-center">
                 
                 
@@ -63,26 +63,26 @@
         </div>
     </nav>
 
-    <div id="uploader" class="min-h-screen flex flex-col items-center justify-start py-12 p-4 bg-gray-900">
+    <div id="uploader" class="min-h-screen flex flex-col items-center justify-start py-12 p-4 bg-gray-50">
         <div id="tool-uploader"
-            class="bg-gray-800 rounded-xl shadow-xl px-4 py-8 md:p-8 max-w-2xl w-full text-gray-200 border border-gray-700">
+            class="bg-white rounded-xl shadow-xl px-4 py-8 md:p-8 max-w-2xl w-full text-gray-800 border border-gray-200">
             <button id="back-to-tools"
-                class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 mb-6 font-semibold">
+                class="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 mb-6 font-semibold">
                 <i data-lucide="arrow-left" class="cursor-pointer"></i>
                 <span class="cursor-pointer" data-i18n="tools.backToTools"> Back to Tools </span>
             </button>
 
-            <h1 class="text-2xl font-bold text-white mb-2" data-i18n="tools:fixPageSize.name">Fix Page Size</h1>
-            <p class="text-gray-400 mb-6" data-i18n="tools:fixPageSize.subtitle">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="tools:fixPageSize.name">Fix Page Size</h1>
+            <p class="text-gray-600 mb-6" data-i18n="tools:fixPageSize.subtitle">
                 Standardize all pages in your PDF to a uniform size. Choose from standard sizes or set custom
                 dimensions.
             </p>
 
             <div id="drop-zone"
-                class="relative flex flex-col items-center justify-center w-full h-48 md:h-64 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-900 hover:bg-gray-700 transition-colors duration-300">
+                class="relative flex flex-col items-center justify-center w-full h-48 md:h-64 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
                 <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                    <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-400"></i>
-                    <p class="mb-2 text-sm text-gray-400"><span class="font-semibold">Click to select PDF</span> <span
+                    <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-600"></i>
+                    <p class="mb-2 text-sm text-gray-600"><span class="font-semibold">Click to select PDF</span> <span
                             data-i18n="upload.orDragAndDrop">or drag and drop</span></p>
                     <p class="text-xs text-gray-500" data-i18n="upload.filesNeverLeave">Your files never leave your
                         device.</p>
@@ -97,10 +97,10 @@
             <div id="tool-options" class="hidden mt-6 space-y-4">
                 <!-- Target Size -->
                 <div>
-                    <label for="target-size" class="block mb-2 text-sm font-medium text-gray-300">Target Page
+                    <label for="target-size" class="block mb-2 text-sm font-medium text-gray-700">Target Page
                         Size</label>
                     <select id="target-size"
-                        class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
+                        class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-lg p-2.5">
                         <option value="A4">A4 (210 × 297 mm)</option>
                         <option value="Letter">Letter (8.5 × 11 in)</option>
                         <option value="Legal">Legal (8.5 × 14 in)</option>
@@ -115,21 +115,21 @@
                 <div id="custom-size-wrapper" class="hidden space-y-3">
                     <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label for="custom-width" class="block mb-1 text-xs font-medium text-gray-400">Width</label>
+                            <label for="custom-width" class="block mb-1 text-xs font-medium text-gray-600">Width</label>
                             <input type="number" id="custom-width" step="0.01" min="0.1" value="8.5"
-                                class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2 text-sm">
+                                class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-lg p-2 text-sm">
                         </div>
                         <div>
                             <label for="custom-height"
-                                class="block mb-1 text-xs font-medium text-gray-400">Height</label>
+                                class="block mb-1 text-xs font-medium text-gray-600">Height</label>
                             <input type="number" id="custom-height" step="0.01" min="0.1" value="11"
-                                class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2 text-sm">
+                                class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-lg p-2 text-sm">
                         </div>
                     </div>
                     <div>
-                        <label for="custom-units" class="block mb-1 text-xs font-medium text-gray-400">Units</label>
+                        <label for="custom-units" class="block mb-1 text-xs font-medium text-gray-600">Units</label>
                         <select id="custom-units"
-                            class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2 text-sm">
+                            class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-lg p-2 text-sm">
                             <option value="in">Inches</option>
                             <option value="mm">Millimeters</option>
                         </select>
@@ -138,9 +138,9 @@
 
                 <!-- Orientation -->
                 <div>
-                    <label for="orientation" class="block mb-2 text-sm font-medium text-gray-300">Orientation</label>
+                    <label for="orientation" class="block mb-2 text-sm font-medium text-gray-700">Orientation</label>
                     <select id="orientation"
-                        class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
+                        class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-lg p-2.5">
                         <option value="auto">Auto (Keep Original)</option>
                         <option value="portrait">Portrait</option>
                         <option value="landscape">Landscape</option>
@@ -149,24 +149,24 @@
 
                 <!-- Scaling Mode -->
                 <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-300">Content Scaling</label>
-                    <div class="flex gap-4 p-2 rounded-lg bg-gray-900">
+                    <label class="block mb-2 text-sm font-medium text-gray-700">Content Scaling</label>
+                    <div class="flex gap-4 p-2 rounded-lg bg-gray-50">
                         <label
-                            class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer has-[:checked]:bg-indigo-600">
+                            class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-100 cursor-pointer has-[:checked]:bg-indigo-600">
                             <input type="radio" name="scaling-mode" value="fit" checked
-                                class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
+                                class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500">
                             <div>
-                                <span class="font-semibold text-white">Fit</span>
-                                <p class="text-xs text-gray-400">Preserves all content, may add margins.</p>
+                                <span class="font-semibold text-gray-900">Fit</span>
+                                <p class="text-xs text-gray-600">Preserves all content, may add margins.</p>
                             </div>
                         </label>
                         <label
-                            class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer has-[:checked]:bg-indigo-600">
+                            class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-100 cursor-pointer has-[:checked]:bg-indigo-600">
                             <input type="radio" name="scaling-mode" value="fill"
-                                class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
+                                class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500">
                             <div>
-                                <span class="font-semibold text-white">Fill (Crop)</span>
-                                <p class="text-xs text-gray-400">Fills the page, may crop content.</p>
+                                <span class="font-semibold text-gray-900">Fill (Crop)</span>
+                                <p class="text-xs text-gray-600">Fills the page, may crop content.</p>
                             </div>
                         </label>
                     </div>
@@ -174,12 +174,12 @@
 
                 <!-- Background Color -->
                 <div>
-                    <label for="background-color" class="block mb-2 text-sm font-medium text-gray-300">Background
+                    <label for="background-color" class="block mb-2 text-sm font-medium text-gray-700">Background
                         Color</label>
                     <div class="flex items-center gap-3">
                         <input type="color" id="background-color" value="#ffffff"
-                            class="h-10 w-20 rounded border border-gray-600 bg-gray-700 cursor-pointer">
-                        <span class="text-sm text-gray-400">Color for margins/padding</span>
+                            class="h-10 w-20 rounded border border-gray-300 bg-gray-100 cursor-pointer">
+                        <span class="text-sm text-gray-600">Color for margins/padding</span>
                     </div>
                 </div>
 
@@ -189,20 +189,20 @@
     </div>
 
     <!-- Loader Modal -->
-    <div id="loader-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-        <div class="bg-gray-800 p-8 rounded-lg flex flex-col items-center gap-4 border border-gray-700 shadow-xl">
+    <div id="loader-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg flex flex-col items-center gap-4 border border-gray-200 shadow-xl">
             <div class="solid-spinner"></div>
-            <p id="loader-text" class="text-white text-lg font-medium" data-i18n="loader.processing"
+            <p id="loader-text" class="text-gray-900 text-lg font-medium" data-i18n="loader.processing"
                 data-i18n="loader.processing">Processing...</p>
         </div>
     </div>
 
     <!-- Alert Modal -->
-    <div id="alert-modal" class="fixed inset-0 bg-gray-900 bg-opacity-90 flex items-center justify-center z-50 hidden">
-        <div class="bg-gray-800 rounded-lg shadow-xl p-6 max-w-sm w-full border border-gray-700">
-            <h3 id="alert-title" class="text-xl font-bold text-white mb-2" data-i18n="alert.title"
+    <div id="alert-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full border border-gray-200">
+            <h3 id="alert-title" class="text-xl font-bold text-gray-900 mb-2" data-i18n="alert.title"
                 data-i18n="alert.title">Alert</h3>
-            <p id="alert-message" class="text-gray-300 mb-6"></p>
+            <p id="alert-message" class="text-gray-700 mb-6"></p>
             <button id="alert-ok"
                 class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
                 OK

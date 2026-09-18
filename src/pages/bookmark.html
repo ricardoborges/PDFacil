@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced PDF Bookmark Tool - PDFácil</title>
+  <title>Advanced PDF Bookmark Tool - StrixPDF</title>
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link rel="apple-touch-icon" href="/images/favicon.png" />
@@ -17,19 +17,19 @@
   <link href="../../src/css/bookmark.css" rel="stylesheet" />
 </head>
 
-<body class="antialiased bg-gray-900">
-  <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-30">
+<body class="antialiased bg-gray-50">
+  <nav class="bg-white border-b border-gray-200 sticky top-0 z-30">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <div class="flex-shrink-0 flex items-center cursor-pointer" id="home-logo">
-          <img src="/images/favicon.svg" alt="PDFácil Logo" class="h-8 w-8" />
-          <span class="text-white font-bold text-xl ml-2">
-            <a href="/">PDFácil</a>
+          <img src="/images/favicon.svg" alt="StrixPDF Logo" class="h-8 w-8" />
+          <span class="text-gray-900 font-bold text-xl ml-2">
+            <a href="/">StrixPDF</a>
           </span>
         </div>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8 text-white">
+        <div class="hidden md:flex items-center space-x-8 text-gray-900">
           
           
           
@@ -39,7 +39,7 @@
         <!-- Mobile Hamburger Button -->
         <div class="md:hidden flex items-center">
           <button id="mobile-menu-button" type="button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-colors"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-colors"
             aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <!-- Hamburger Icon -->
@@ -58,7 +58,7 @@
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
       <div class="px-2 pt-2 pb-3 space-y-1 text-center">
         
         
@@ -67,25 +67,25 @@
       </div>
     </div>
   </nav>
-  <div id="uploader" class="min-h-screen flex items-center justify-center p-4 bg-gray-900">
+  <div id="uploader" class="min-h-screen flex items-center justify-center p-4 bg-gray-50">
     <div id="tool-uploader"
-      class="bg-gray-800 rounded-xl shadow-xl p-8 max-w-2xl w-full text-gray-200 border border-gray-700">
+      class="bg-white rounded-xl shadow-xl p-8 max-w-2xl w-full text-gray-800 border border-gray-200">
       <button id="back-to-tools"
-        class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 mb-6 font-semibold">
+        class="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 mb-6 font-semibold">
         <i data-lucide="arrow-left" class="cursor-pointer"></i>
         <span class="cursor-pointer" data-i18n="tools.backToTools"> Back to Tools </span>
       </button>
-      <h1 class="text-2xl font-bold text-white mb-2" data-i18n="tools:editBookmarks.name">Edit Bookmarks</h1>
-      <p class="text-gray-400 mb-6" data-i18n="tools:editBookmarks.subtitle">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="tools:editBookmarks.name">Edit Bookmarks</h1>
+      <p class="text-gray-600 mb-6" data-i18n="tools:editBookmarks.subtitle">
         Add, edit, import, delete and extract PDF bookmarks.
       </p>
 
       <!-- Drop Zone for Main PDF Upload -->
       <div id="drop-zone"
-        class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-700 hover:bg-gray-600 transition-colors duration-300">
+        class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors duration-300">
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
-          <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-400"></i>
-          <p class="mb-2 text-sm text-gray-300">
+          <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-600"></i>
+          <p class="mb-2 text-sm text-gray-700">
             <span class="font-semibold" data-i18n="upload.clickToSelect">Click to select a file</span> <span
               data-i18n="upload.orDragAndDrop">or drag and drop</span>
           </p>
@@ -103,15 +103,15 @@
 
       <!-- Auto Extract Checkbox -->
       <div class="mt-4">
-        <label class="flex items-center gap-2 text-sm text-gray-300">
+        <label class="flex items-center gap-2 text-sm text-gray-700">
           <input type="checkbox" id="auto-extract-checkbox" class="w-4 h-4 accent-blue-500" />
           <span>Auto-extract existing bookmarks</span>
         </label>
       </div>
 
       <!-- Import Bookmarks Section -->
-      <div class="mt-8 pt-6 border-t border-gray-700">
-        <h3 class="text-sm font-semibold text-gray-300 mb-4">
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-sm font-semibold text-gray-700 mb-4">
           Or Import Bookmarks
         </h3>
 
@@ -119,10 +119,10 @@
         <label class="block mb-4">
           <span class="text-xs text-gray-500">CSV format: title,page,level</span>
           <div
-            class="relative flex flex-col items-center justify-center w-full h-32 mt-2 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
+            class="relative flex flex-col items-center justify-center w-full h-32 mt-2 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer bg-white hover:bg-gray-100 transition-colors duration-300">
             <div class="flex flex-col items-center justify-center pt-4 pb-4">
-              <i data-lucide="sheet" class="w-8 h-8 mb-2 text-gray-400"></i>
-              <p class="text-xs text-gray-400">
+              <i data-lucide="sheet" class="w-8 h-8 mb-2 text-gray-600"></i>
+              <p class="text-xs text-gray-600">
                 <span class="font-semibold">Click to upload CSV</span> or drag
                 here
               </p>
@@ -136,10 +136,10 @@
         <label class="block">
           <span class="text-xs text-gray-500">JSON format</span>
           <div
-            class="relative flex flex-col items-center justify-center w-full h-32 mt-2 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
+            class="relative flex flex-col items-center justify-center w-full h-32 mt-2 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer bg-white hover:bg-gray-100 transition-colors duration-300">
             <div class="flex flex-col items-center justify-center pt-4 pb-4">
-              <i data-lucide="braces" class="w-8 h-8 mb-2 text-gray-400"></i>
-              <p class="text-xs text-gray-400">
+              <i data-lucide="braces" class="w-8 h-8 mb-2 text-gray-600"></i>
+              <p class="text-xs text-gray-600">
                 <span class="font-semibold">Click to upload JSON</span> or
                 drag here
               </p>
@@ -152,21 +152,21 @@
     </div>
   </div>
 
-  <div id="app" class="hidden bg-gray-900 min-h-screen">
-    <header class="bg-gray-800 border-b border-gray-700 shadow-sm sticky top-0 z-50">
+  <div id="app" class="hidden bg-gray-50 min-h-screen">
+    <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 py-3">
         <div class="flex items-center justify-between flex-wrap gap-2">
-          <h1 class="text-xl font-bold text-white" id="filename-display">
+          <h1 class="text-xl font-bold text-gray-900" id="filename-display">
             PDF Bookmark Editor
           </h1>
           <div class="flex gap-2 flex-wrap">
             <button id="undo-btn"
-              class="px-3 py-2 text-sm bg-gray-700 hover:bg-gray-600 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
+              class="px-3 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-900 rounded disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
               disabled>
               <i data-lucide="undo-2" class="w-4 h-4"></i> Undo
             </button>
             <button id="redo-btn"
-              class="px-3 py-2 text-sm bg-gray-700 hover:bg-gray-600 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
+              class="px-3 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-900 rounded disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
               disabled>
               <i data-lucide="redo-2" class="w-4 h-4"></i> Redo
             </button>
@@ -180,7 +180,7 @@
             </button>
 
             <button id="back-btn"
-              class="px-3 py-2 text-sm bg-gray-700 hover:bg-gray-600 text-white rounded flex items-center gap-1">
+              class="px-3 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-900 rounded flex items-center gap-1">
               <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Tools
             </button>
           </div>
@@ -188,12 +188,12 @@
       </div>
     </header>
 
-    <div class="lg:hidden bg-gray-800 border-b border-gray-700">
+    <div class="lg:hidden bg-white border-b border-gray-200">
       <div class="flex">
         <button id="show-viewer-btn" class="flex-1 py-3 text-sm font-medium bg-indigo-600 text-white">
           PDF Viewer
         </button>
-        <button id="show-bookmarks-btn" class="flex-1 py-3 text-sm font-medium text-gray-300 hover:text-white">
+        <button id="show-bookmarks-btn" class="flex-1 py-3 text-sm font-medium text-gray-700 hover:text-gray-900">
           Bookmarks
         </button>
       </div>
@@ -268,7 +268,7 @@
             <div class="mb-4">
               <div class="relative">
                 <i data-lucide="search"
-                  class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                  class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-600"></i>
                 <input type="text" id="search-bookmarks" placeholder="Search bookmarks..."
                   class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-sm" />
               </div>
@@ -303,7 +303,7 @@
                       Select All
                     </button>
                     <button id="deselect-all-btn"
-                      class="flex-1 px-3 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded text-xs flex items-center justify-center gap-1">
+                      class="flex-1 px-3 py-2 bg-gray-300 hover:bg-gray-200 text-gray-900 rounded text-xs flex items-center justify-center gap-1">
                       <i data-lucide="square" class="w-3 h-3"></i> Deselect
                       All
                     </button>
@@ -391,7 +391,7 @@
 
             <div class="mb-4 max-h-96 overflow-y-auto border border-gray-200 rounded-lg p-2">
               <ul id="bookmark-tree-list" class="space-y-2"></ul>
-              <div id="no-bookmarks" class="text-center py-8 text-gray-400 text-sm">
+              <div id="no-bookmarks" class="text-center py-8 text-gray-600 text-sm">
                 No bookmarks yet. Add one above!
               </div>
             </div>

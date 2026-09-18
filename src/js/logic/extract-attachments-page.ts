@@ -41,10 +41,10 @@ function showStatus(message: string, type: 'success' | 'error' | 'info' = 'info'
 
     statusMessage.textContent = message;
     statusMessage.className = `mt-4 p-3 rounded-lg text-sm ${type === 'success'
-            ? 'bg-green-900 text-green-200'
+            ? 'bg-green-50 text-green-700'
             : type === 'error'
-                ? 'bg-red-900 text-red-200'
-                : 'bg-blue-900 text-blue-200'
+                ? 'bg-red-50 text-red-700'
+                : 'bg-blue-50 text-blue-700'
         }`;
     statusMessage.classList.remove('hidden');
 }
@@ -119,24 +119,24 @@ async function updateUI() {
 
     if (pageState.files.length > 0) {
         const summaryDiv = document.createElement('div');
-        summaryDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm';
+        summaryDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm';
 
         const infoContainer = document.createElement('div');
         infoContainer.className = 'flex flex-col overflow-hidden';
 
         const countSpan = document.createElement('div');
-        countSpan.className = 'font-medium text-gray-200 text-sm mb-1';
+        countSpan.className = 'font-medium text-gray-800 text-sm mb-1';
         countSpan.textContent = `${pageState.files.length} PDF file(s) selected`;
 
         const sizeSpan = document.createElement('div');
-        sizeSpan.className = 'text-xs text-gray-400';
+        sizeSpan.className = 'text-xs text-gray-600';
         const totalSize = pageState.files.reduce(function (sum, f) { return sum + f.size; }, 0);
         sizeSpan.textContent = formatBytes(totalSize);
 
         infoContainer.append(countSpan, sizeSpan);
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+        removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
         removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
         removeBtn.onclick = function () {
             resetState();
@@ -232,17 +232,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         dropZone.addEventListener('dragover', function (e) {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', function (e) {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             const files = e.dataTransfer?.files;
             if (files && files.length > 0) {
                 handleFileSelect(files);

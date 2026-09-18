@@ -125,7 +125,7 @@ async function renderPageMergeThumbnails() {
         const createWrapper = (canvas: HTMLCanvasElement, pageNumber: number, fileName?: string) => {
             const wrapper = document.createElement('div');
             wrapper.className =
-                'page-thumbnail relative cursor-move flex flex-col items-center gap-1 p-2 border-2 border-gray-600 hover:border-indigo-500 rounded-lg bg-gray-700 transition-colors';
+                'page-thumbnail relative cursor-move flex flex-col items-center gap-1 p-2 border-2 border-gray-300 hover:border-indigo-500 rounded-lg bg-gray-100 transition-colors';
             wrapper.dataset.fileName = fileName || '';
             wrapper.dataset.pageIndex = (pageNumber - 1).toString();
 
@@ -145,7 +145,7 @@ async function renderPageMergeThumbnails() {
 
             const fileNamePara = document.createElement('p');
             fileNamePara.className =
-                'text-xs text-gray-400 truncate w-full text-center';
+                'text-xs text-gray-600 truncate w-full text-center';
             const fullTitle = fileName ? `${fileName} (page ${pageNumber})` : `Page ${pageNumber}`;
             fileNamePara.title = fullTitle;
             fileNamePara.textContent = fileName
@@ -241,10 +241,10 @@ const resetState = async () => {
     const pagePanel = document.getElementById('page-mode-panel');
 
     if (fileModeBtn && pageModeBtn && filePanel && pagePanel) {
-        fileModeBtn.classList.add('bg-indigo-600', 'text-white');
-        fileModeBtn.classList.remove('bg-gray-700', 'text-gray-300');
-        pageModeBtn.classList.remove('bg-indigo-600', 'text-white');
-        pageModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+        fileModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+        fileModeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+        pageModeBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+        pageModeBtn.classList.add('bg-gray-100', 'text-gray-700');
 
         filePanel.classList.remove('hidden');
         pagePanel.classList.add('hidden');
@@ -451,20 +451,20 @@ export async function refreshMergeUI() {
 
         const li = document.createElement('li');
         li.className =
-            'bg-gray-700 p-3 rounded-lg border border-gray-600 hover:border-indigo-500 transition-colors';
+            'bg-gray-100 p-3 rounded-lg border border-gray-300 hover:border-indigo-500 transition-colors';
         li.dataset.fileName = f.name;
 
         const mainDiv = document.createElement('div');
         mainDiv.className = 'flex items-center justify-between';
 
         const nameSpan = document.createElement('span');
-        nameSpan.className = 'truncate font-medium text-white flex-1 mr-2';
+        nameSpan.className = 'truncate font-medium text-gray-900 flex-1 mr-2';
         nameSpan.title = f.name;
         nameSpan.textContent = f.name;
 
         const dragHandle = document.createElement('div');
         dragHandle.className =
-            'drag-handle cursor-move text-gray-400 hover:text-white p-1 rounded transition-colors';
+            'drag-handle cursor-move text-gray-600 hover:text-gray-900 p-1 rounded transition-colors';
         dragHandle.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="5" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="19" r="1"/></svg>`; // Safe: static content
 
         mainDiv.append(nameSpan, dragHandle);
@@ -477,20 +477,20 @@ export async function refreshMergeUI() {
 
         const label = document.createElement('label');
         label.htmlFor = `range-${safeFileName}`;
-        label.className = 'text-xs text-gray-400';
+        label.className = 'text-xs text-gray-600';
         label.textContent = `Pages (e.g., 1-3, 5) - Total: ${pageCount}`;
 
         const input = document.createElement('input');
         input.type = 'text';
         input.id = `range-${safeFileName}`;
         input.className =
-            'w-full bg-gray-800 border border-gray-600 text-white rounded-md p-2 text-sm mt-1 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors';
+            'w-full bg-white border border-gray-300 text-gray-900 rounded-md p-2 text-sm mt-1 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors';
         input.placeholder = 'Leave blank for all pages';
 
         inputWrapper.append(label, input);
 
         const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'text-red-400 hover:text-red-300 p-2 flex-shrink-0 self-end';
+        deleteBtn.className = 'text-red-600 hover:text-red-800 p-2 flex-shrink-0 self-end';
         deleteBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
         deleteBtn.title = 'Remove file';
         deleteBtn.onclick = (e) => {
@@ -519,10 +519,10 @@ export async function refreshMergeUI() {
         filePanel.classList.remove('hidden');
         pagePanel.classList.add('hidden');
 
-        newFileModeBtn.classList.add('bg-indigo-600', 'text-white');
-        newFileModeBtn.classList.remove('bg-gray-700', 'text-gray-300');
-        newPageModeBtn.classList.remove('bg-indigo-600', 'text-white');
-        newPageModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+        newFileModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+        newFileModeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+        newPageModeBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+        newPageModeBtn.classList.add('bg-gray-100', 'text-gray-700');
     });
 
     newPageModeBtn.addEventListener('click', async () => {
@@ -532,10 +532,10 @@ export async function refreshMergeUI() {
         filePanel.classList.add('hidden');
         pagePanel.classList.remove('hidden');
 
-        newPageModeBtn.classList.add('bg-indigo-600', 'text-white');
-        newPageModeBtn.classList.remove('bg-gray-700', 'text-gray-300');
-        newFileModeBtn.classList.remove('bg-indigo-600', 'text-white');
-        newFileModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+        newPageModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+        newPageModeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+        newFileModeBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+        newFileModeBtn.classList.add('bg-gray-100', 'text-gray-700');
 
         await renderPageMergeThumbnails();
     });
@@ -545,15 +545,15 @@ export async function refreshMergeUI() {
         filePanel.classList.add('hidden');
         pagePanel.classList.remove('hidden');
 
-        newPageModeBtn.classList.add('bg-indigo-600', 'text-white');
-        newPageModeBtn.classList.remove('bg-gray-700', 'text-gray-300');
-        newFileModeBtn.classList.remove('bg-indigo-600', 'text-white');
-        newFileModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+        newPageModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+        newPageModeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+        newFileModeBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+        newFileModeBtn.classList.add('bg-gray-100', 'text-gray-700');
 
         await renderPageMergeThumbnails();
     } else {
-        newFileModeBtn.classList.add('bg-indigo-600', 'text-white');
-        newPageModeBtn.classList.add('bg-gray-700', 'text-gray-300');
+        newFileModeBtn.classList.add('bg-indigo-600', 'text-gray-900');
+        newPageModeBtn.classList.add('bg-gray-100', 'text-gray-700');
     }
 }
 
@@ -587,17 +587,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
-            dropZone.classList.add('bg-gray-700');
+            dropZone.classList.add('bg-gray-100');
         });
 
         dropZone.addEventListener('dragleave', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
         });
 
         dropZone.addEventListener('drop', async (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             const files = e.dataTransfer?.files;
             if (files && files.length > 0) {
                 const pdfFiles = Array.from(files).filter(f => f.type === 'application/pdf' || f.name.toLowerCase().endsWith('.pdf'));

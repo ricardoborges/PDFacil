@@ -1,13 +1,12 @@
 {
     "app": {
-        "title": "PDFácil - Ferramentas PDF com Privacidade"
+        "title": "StrixPDF - Ferramentas PDF com Privacidade"
     },
     "nav": {
-        "brandName": "PDFácil",
+        "brandName": "StrixPDF",
         "home": "Início",
         "about": "Sobre",
         "contact": "Contato",
-        "licensing": "Licenciamento",
         "allTools": "Todas as Ferramentas",
         "openMainMenu": "Abrir menu principal",
         "language": "Idioma"
@@ -26,7 +25,7 @@
     },
     "features": {
         "title": "Por que escolher",
-        "bentoPdf": "PDFácil?",
+        "strixPdf": "StrixPDF?",
         "noSignup": {
             "title": "Sem Cadastro",
             "description": "Comece instantaneamente, sem contas ou e-mails."
@@ -139,8 +138,8 @@
         "title": "Perguntas",
         "questions": "Frequentes",
         "isFree": {
-            "question": "O PDFácil é realmente gratuito?",
-            "answer": "Sim, absolutamente. Todas as ferramentas do PDFácil são 100% gratuitas, sem limites de arquivos, sem cadastro e sem marcas d'água. Acreditamos que todos merecem acesso a ferramentas PDF simples e poderosas sem paywalls."
+            "question": "O StrixPDF é realmente gratuito?",
+            "answer": "Sim, absolutamente. Todas as ferramentas do StrixPDF são 100% gratuitas, sem limites de arquivos, sem cadastro e sem marcas d'água. Acreditamos que todos merecem acesso a ferramentas PDF simples e poderosas sem paywalls."
         },
         "areFilesSecure": {
             "question": "Meus arquivos estão seguros? Onde eles são processados?",
@@ -148,27 +147,27 @@
         },
         "platforms": {
             "question": "Funciona no Mac, Windows e dispositivos móveis?",
-            "answer": "Sim! Como o PDFácil roda inteiramente no seu navegador, funciona em qualquer sistema operacional com um navegador moderno, incluindo Windows, macOS, Linux, iOS e Android."
+            "answer": "Sim! Como o StrixPDF roda inteiramente no seu navegador, funciona em qualquer sistema operacional com um navegador moderno, incluindo Windows, macOS, Linux, iOS e Android."
         },
         "gdprCompliant": {
-            "question": "O PDFácil está em conformidade com o GDPR?",
-            "answer": "Sim. O PDFácil está totalmente em conformidade com o GDPR. Como todo o processamento de arquivos acontece localmente no seu navegador e nunca coletamos ou transmitimos seus arquivos para nenhum servidor, não temos acesso aos seus dados. Isso garante que você sempre esteja no controle dos seus documentos."
+            "question": "O StrixPDF está em conformidade com o GDPR?",
+            "answer": "Sim. O StrixPDF está totalmente em conformidade com o GDPR. Como todo o processamento de arquivos acontece localmente no seu navegador e nunca coletamos ou transmitimos seus arquivos para nenhum servidor, não temos acesso aos seus dados. Isso garante que você sempre esteja no controle dos seus documentos."
         },
         "dataStorage": {
             "question": "Vocês armazenam ou rastreiam meus arquivos?",
-            "answer": "Não. Nunca armazenamos, rastreamos ou registramos seus arquivos. Tudo o que você faz no PDFácil acontece na memória do seu navegador e desaparece quando você fecha a página. Não há uploads, não há logs de histórico e não há servidores envolvidos."
+            "answer": "Não. Nunca armazenamos, rastreamos ou registramos seus arquivos. Tudo o que você faz no StrixPDF acontece na memória do seu navegador e desaparece quando você fecha a página. Não há uploads, não há logs de histórico e não há servidores envolvidos."
         },
         "different": {
-            "question": "O que torna o PDFácil diferente de outras ferramentas PDF?",
-            "answer": "A maioria das ferramentas PDF envia seus arquivos para um servidor para processamento. O PDFácil nunca faz isso. Usamos tecnologia web moderna e segura para processar seus arquivos diretamente no seu navegador. Isso significa desempenho mais rápido, privacidade mais forte e total tranquilidade."
+            "question": "O que torna o StrixPDF diferente de outras ferramentas PDF?",
+            "answer": "A maioria das ferramentas PDF envia seus arquivos para um servidor para processamento. O StrixPDF nunca faz isso. Usamos tecnologia web moderna e segura para processar seus arquivos diretamente no seu navegador. Isso significa desempenho mais rápido, privacidade mais forte e total tranquilidade."
         },
         "browserBased": {
             "question": "Como o processamento baseado em navegador me mantém seguro?",
-            "answer": "Ao rodar inteiramente dentro do seu navegador, o PDFácil garante que seus arquivos nunca saiam do seu dispositivo. Isso elimina os riscos de hacks de servidor, violações de dados ou acesso não autorizado. Seus arquivos permanecem seus—sempre."
+            "answer": "Ao rodar inteiramente dentro do seu navegador, o StrixPDF garante que seus arquivos nunca saiam do seu dispositivo. Isso elimina os riscos de hacks de servidor, violações de dados ou acesso não autorizado. Seus arquivos permanecem seus—sempre."
         },
         "analytics": {
             "question": "Vocês usam cookies ou analytics para me rastrear?",
-            "answer": "Nós nos preocupamos com sua privacidade. O PDFácil não rastreia informações pessoais. Usamos Simple Analytics apenas para ver contagens anônimas de visitas. Isso significa que podemos saber quantos usuários visitam nosso site, mas nunca sabemos quem você é. O Simple Analytics está totalmente em conformidade com o GDPR e respeita sua privacidade."
+            "answer": "Nós nos preocupamos com sua privacidade. O StrixPDF não rastreia informações pessoais. Usamos Simple Analytics apenas para ver contagens anônimas de visitas. Isso significa que podemos saber quantos usuários visitam nosso site, mas nunca sabemos quem você é. O Simple Analytics está totalmente em conformidade com o GDPR e respeita sua privacidade."
         }
     },
     "testimonials": {
@@ -178,11 +177,11 @@
     },
     "support": {
         "title": "Gostou do Meu Trabalho?",
-        "description": "O PDFácil é um projeto de paixão, criado para fornecer um kit de ferramentas PDF gratuito, privado e poderoso para todos. Se você achar útil, considere apoiar seu desenvolvimento. Cada café ajuda!",
+        "description": "O StrixPDF é um projeto de paixão, criado para fornecer um kit de ferramentas PDF gratuito, privado e poderoso para todos. Se você achar útil, considere apoiar seu desenvolvimento. Cada café ajuda!",
         "buyMeCoffee": "Compre-me um Café"
     },
     "footer": {
-        "copyright": "© 2025 PDFácil. Todos os direitos reservados.",
+        "copyright": "© 2025 StrixPDF. Todos os direitos reservados.",
         "version": "Versão",
         "company": "Empresa",
         "aboutUs": "Sobre Nós",
@@ -241,9 +240,9 @@
         "philosophy": {
             "label": "Nossa Filosofia Central",
             "title": "Privacidade em Primeiro Lugar. Sempre.",
-            "description": "Em uma era onde dados são uma mercadoria, adotamos uma abordagem diferente. Todo o processamento das ferramentas PDFácil acontece localmente no seu navegador. Isso significa que seus arquivos nunca tocam nossos servidores, nunca vemos seus documentos e não rastreamos o que você faz. Seus documentos permanecem completamente e inequivocamente privados. Não é apenas um recurso; é nossa fundação."
+            "description": "Em uma era onde dados são uma mercadoria, adotamos uma abordagem diferente. Todo o processamento das ferramentas StrixPDF acontece localmente no seu navegador. Isso significa que seus arquivos nunca tocam nossos servidores, nunca vemos seus documentos e não rastreamos o que você faz. Seus documentos permanecem completamente e inequivocamente privados. Não é apenas um recurso; é nossa fundação."
         },
-        "whyBentopdf": {
+        "whyStrixPdf": {
             "title": "Por que",
             "speed": {
                 "title": "Feito para Velocidade",
@@ -264,18 +263,14 @@
         },
         "cta": {
             "title": "Pronto para começar?",
-            "description": "Junte-se a milhares de usuários que confiam no PDFácil para suas necessidades diárias de documentos. Experimente a diferença que privacidade e desempenho podem fazer.",
+            "description": "Junte-se a milhares de usuários que confiam no StrixPDF para suas necessidades diárias de documentos. Experimente a diferença que privacidade e desempenho podem fazer.",
             "button": "Explorar Todas as Ferramentas"
         }
     },
     "contact": {
         "title": "Entre em Contato",
         "subtitle": "Adoraríamos ouvir de você. Se você tem uma pergunta, feedback ou solicitação de recurso, não hesite em entrar em contato.",
-        "email": "Você pode nos contatar diretamente por e-mail em:"
-    },
-    "licensing": {
-        "title": "Licenciamento do",
-        "subtitle": "Escolha a licença que atende às suas necessidades."
+        "issues": "Dúvidas, relatos de bugs e sugestões de recursos são tratados no GitHub:"
     },
     "multiTool": {
         "uploadPdfs": "Enviar PDFs",

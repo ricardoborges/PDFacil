@@ -39,11 +39,11 @@ function initializePage() {
     if (fileInput) fileInput.addEventListener('change', handleFileUpload);
 
     if (dropZone) {
-        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('bg-gray-700'); });
-        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('bg-gray-700'); });
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('bg-gray-100'); });
+        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('bg-gray-100'); });
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('bg-gray-700');
+            dropZone.classList.remove('bg-gray-100');
             const droppedFiles = e.dataTransfer?.files;
             if (droppedFiles && droppedFiles.length > 0) handleFile(droppedFiles[0]);
         });
@@ -99,23 +99,23 @@ function updateFileDisplay() {
 
     fileDisplayArea.innerHTML = '';
     const fileDiv = document.createElement('div');
-    fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg';
+    fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg';
 
     const infoContainer = document.createElement('div');
     infoContainer.className = 'flex flex-col flex-1 min-w-0';
 
     const nameSpan = document.createElement('div');
-    nameSpan.className = 'truncate font-medium text-gray-200 text-sm mb-1';
+    nameSpan.className = 'truncate font-medium text-gray-800 text-sm mb-1';
     nameSpan.textContent = deleteState.file.name;
 
     const metaSpan = document.createElement('div');
-    metaSpan.className = 'text-xs text-gray-400';
+    metaSpan.className = 'text-xs text-gray-600';
     metaSpan.textContent = `${formatBytes(deleteState.file.size)} • ${deleteState.totalPages} pages`;
 
     infoContainer.append(nameSpan, metaSpan);
 
     const removeBtn = document.createElement('button');
-    removeBtn.className = 'ml-4 text-red-400 hover:text-red-300 flex-shrink-0';
+    removeBtn.className = 'ml-4 text-red-600 hover:text-red-800 flex-shrink-0';
     removeBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>';
     removeBtn.onclick = () => resetState();
 
@@ -152,19 +152,19 @@ async function renderThumbnails() {
         wrapper.dataset.page = i.toString();
 
         const imgContainer = document.createElement('div');
-        imgContainer.className = 'w-full h-28 bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden border-2 border-gray-600';
+        imgContainer.className = 'w-full h-28 bg-gray-50 rounded-lg flex items-center justify-center overflow-hidden border-2 border-gray-300';
 
         const img = document.createElement('img');
         img.src = canvas.toDataURL();
         img.className = 'max-w-full max-h-full object-contain';
 
         const pageLabel = document.createElement('span');
-        pageLabel.className = 'absolute top-1 left-1 bg-gray-800 text-white text-xs px-1.5 py-0.5 rounded';
+        pageLabel.className = 'absolute top-1 left-1 bg-white text-gray-900 text-xs px-1.5 py-0.5 rounded';
         pageLabel.textContent = `${i}`;
 
         const deleteOverlay = document.createElement('div');
         deleteOverlay.className = 'absolute inset-0 bg-red-500/50 hidden items-center justify-center rounded-lg';
-        deleteOverlay.innerHTML = '<i data-lucide="x" class="w-8 h-8 text-white"></i>';
+        deleteOverlay.innerHTML = '<i data-lucide="x" class="w-8 h-8 text-gray-900"></i>';
 
         imgContainer.appendChild(img);
         wrapper.append(imgContainer, pageLabel, deleteOverlay);

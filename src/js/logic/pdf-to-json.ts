@@ -18,10 +18,10 @@ function showStatus(
 ) {
   statusMessage.textContent = message
   statusMessage.className = `mt-4 p-3 rounded-lg text-sm ${type === 'success'
-    ? 'bg-green-900 text-green-200'
+    ? 'bg-green-50 text-green-700'
     : type === 'error'
-      ? 'bg-red-900 text-red-200'
-      : 'bg-blue-900 text-blue-200'
+      ? 'bg-red-50 text-red-700'
+      : 'bg-blue-50 text-blue-700'
     }`
   statusMessage.classList.remove('hidden')
 }
@@ -40,14 +40,14 @@ function updateFileList() {
   fileListDiv.classList.remove('hidden')
   selectedFiles.forEach((file) => {
     const fileDiv = document.createElement('div')
-    fileDiv.className = 'flex items-center justify-between bg-gray-700 p-3 rounded-lg text-sm mb-2'
+    fileDiv.className = 'flex items-center justify-between bg-gray-100 p-3 rounded-lg text-sm mb-2'
 
     const nameSpan = document.createElement('span')
-    nameSpan.className = 'truncate font-medium text-gray-200'
+    nameSpan.className = 'truncate font-medium text-gray-800'
     nameSpan.textContent = file.name
 
     const sizeSpan = document.createElement('span')
-    sizeSpan.className = 'flex-shrink-0 ml-4 text-gray-400'
+    sizeSpan.className = 'flex-shrink-0 ml-4 text-gray-600'
     sizeSpan.textContent = formatBytes(file.size)
 
     fileDiv.append(nameSpan, sizeSpan)

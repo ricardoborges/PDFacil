@@ -110,12 +110,12 @@ jobs:
           build-args: |
             SIMPLE_MODE=${{ matrix.mode.simple_mode }}
           tags: |
-            bentopdf/bentopdf${{ matrix.mode.suffix }}:latest
-            bentopdf/bentopdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version_without_v }}
-            bentopdf/bentopdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version }}
-            ghcr.io/${{ github.repository_owner }}/bentopdf${{ matrix.mode.suffix }}:latest
-            ghcr.io/${{ github.repository_owner }}/bentopdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version_without_v }}
-            ghcr.io/${{ github.repository_owner }}/bentopdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version }}
+            strixpdf/strixpdf${{ matrix.mode.suffix }}:latest
+            strixpdf/strixpdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version_without_v }}
+            strixpdf/strixpdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version }}
+            ghcr.io/${{ github.repository_owner }}/strixpdf${{ matrix.mode.suffix }}:latest
+            ghcr.io/${{ github.repository_owner }}/strixpdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version_without_v }}
+            ghcr.io/${{ github.repository_owner }}/strixpdf${{ matrix.mode.suffix }}:${{ steps.version.outputs.version }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -129,10 +129,10 @@ jobs:
           build-args: |
             SIMPLE_MODE=${{ matrix.mode.simple_mode }}
           tags: |
-            bentopdf/bentopdf${{ matrix.mode.suffix }}:edge
-            bentopdf/bentopdf${{ matrix.mode.suffix }}:sha-${{ steps.version.outputs.short_sha }}
-            ghcr.io/${{ github.repository_owner }}/bentopdf${{ matrix.mode.suffix }}:edge
-            ghcr.io/${{ github.repository_owner }}/bentopdf${{ matrix.mode.suffix }}:sha-${{ steps.version.outputs.short_sha }}
+            strixpdf/strixpdf${{ matrix.mode.suffix }}:edge
+            strixpdf/strixpdf${{ matrix.mode.suffix }}:sha-${{ steps.version.outputs.short_sha }}
+            ghcr.io/${{ github.repository_owner }}/strixpdf${{ matrix.mode.suffix }}:edge
+            ghcr.io/${{ github.repository_owner }}/strixpdf${{ matrix.mode.suffix }}:sha-${{ steps.version.outputs.short_sha }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max

@@ -64,7 +64,7 @@ function updateFileList() {
   }
 
   const wrapper = document.createElement('div')
-  wrapper.className = 'bg-gray-700 p-3 rounded-lg border border-gray-600 hover:border-indigo-500 transition-colors'
+  wrapper.className = 'bg-gray-100 p-3 rounded-lg border border-gray-300 hover:border-indigo-500 transition-colors'
 
   const innerDiv = document.createElement('div')
   innerDiv.className = 'flex items-center justify-between'
@@ -73,17 +73,17 @@ function updateFileList() {
   infoDiv.className = 'flex-1 min-w-0'
 
   const nameSpan = document.createElement('p')
-  nameSpan.className = 'truncate font-medium text-white'
+  nameSpan.className = 'truncate font-medium text-gray-900'
   nameSpan.textContent = selectedFile.name
 
   const sizeSpan = document.createElement('p')
-  sizeSpan.className = 'text-gray-400 text-sm'
+  sizeSpan.className = 'text-gray-600 text-sm'
   sizeSpan.textContent = formatBytes(selectedFile.size)
 
   infoDiv.append(nameSpan, sizeSpan)
 
   const deleteBtn = document.createElement('button')
-  deleteBtn.className = 'text-red-400 hover:text-red-300 p-2 flex-shrink-0 ml-2'
+  deleteBtn.className = 'text-red-600 hover:text-red-800 p-2 flex-shrink-0 ml-2'
   deleteBtn.title = 'Remove file'
   deleteBtn.innerHTML = '<i data-lucide="trash-2" class="w-4 h-4"></i>'
   deleteBtn.onclick = (e) => {

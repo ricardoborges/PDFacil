@@ -23,14 +23,14 @@ const init = async () => {
 
         const simpleNav = document.createElement('nav');
         simpleNav.className =
-          'bg-gray-800 border-b border-gray-700 sticky top-0 z-30';
+          'bg-white border-b border-gray-200 sticky top-0 z-30';
         simpleNav.innerHTML = `
           <div class="container mx-auto px-4">
             <div class="flex justify-start items-center h-16">
               <div class="flex-shrink-0 flex items-center cursor-pointer" id="home-logo">
-                <img src="/images/favicon.svg" alt="Bento PDF Logo" class="h-8 w-8">
-                <span class="text-white font-bold text-xl ml-2">
-                  <a href="index.html">BentoPDF</a>
+                <img src="/images/favicon.svg" alt="StrixPDF Logo" class="h-8 w-8">
+                <span class="text-gray-900 font-bold text-xl ml-2">
+                  <a href="index.html">StrixPDF</a>
                 </span>
               </div>
             </div>
@@ -44,7 +44,7 @@ const init = async () => {
         heroSection.style.display = 'none';
       }
 
-      const githubLink = document.querySelector('a[href*="github.com/alam00000/bentopdf"]');
+      const githubLink = document.querySelector('a[href*="github.com/ricardoborges/StrixPDF"]');
       if (githubLink) {
         (githubLink as HTMLElement).style.display = 'none';
       }
@@ -89,17 +89,17 @@ const init = async () => {
         footer.style.display = 'none';
 
         const simpleFooter = document.createElement('footer');
-        simpleFooter.className = 'mt-16 border-t-2 border-gray-700 py-8';
+        simpleFooter.className = 'mt-16 border-t-2 border-gray-200 py-8';
         simpleFooter.setAttribute('data-simple-footer', 'true');
         simpleFooter.innerHTML = `
           <div class="container mx-auto px-4">
             <div class="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <div class="flex items-center mb-2">
-                  <img src="/images/favicon.svg" alt="Bento PDF Logo" class="h-8 w-8 mr-2">
-                  <span class="text-white font-bold text-lg">${t('nav.brandName')}</span>
+                  <img src="/images/favicon.svg" alt="StrixPDF Logo" class="h-8 w-8 mr-2">
+                  <span class="text-gray-900 font-bold text-lg">${t('nav.brandName')}</span>
                 </div>
-                <p class="text-gray-400 text-sm">
+                <p class="text-gray-600 text-sm">
                   ${t('footer.copyright')}
                 </p>
                 <p class="text-gray-500 text-xs mt-2">
@@ -137,11 +137,11 @@ const init = async () => {
         const subtitle = toolsHeader.querySelector('p');
         if (title) {
           title.textContent = t('simpleMode.title');
-          title.className = 'text-4xl md:text-5xl font-bold text-white mb-3';
+          title.className = 'text-4xl md:text-5xl font-bold text-gray-900 mb-3';
         }
         if (subtitle) {
           subtitle.textContent = t('simpleMode.subtitle');
-          subtitle.className = 'text-lg text-gray-400';
+          subtitle.className = 'text-lg text-gray-600';
         }
       }
 
@@ -262,7 +262,7 @@ const init = async () => {
       categoryGroup.className = 'category-group col-span-full';
 
       const title = document.createElement('h2');
-      title.className = 'text-xl font-bold text-indigo-400 mb-4 mt-8 first:mt-0 text-white';
+      title.className = 'text-xl font-bold text-indigo-600 mb-4 mt-8 first:mt-0 text-gray-900';
       const categoryKey = categoryTranslationKeys[category.name];
       title.textContent = categoryKey ? t(categoryKey) : category.name;
 
@@ -277,20 +277,20 @@ const init = async () => {
           toolCard = document.createElement('a');
           toolCard.href = tool.href;
           toolCard.className =
-            'tool-card block bg-gray-800 rounded-xl p-4 cursor-pointer flex flex-col items-center justify-center text-center no-underline hover:shadow-lg transition duration-200';
+            'tool-card block bg-white rounded-xl p-4 cursor-pointer flex flex-col items-center justify-center text-center no-underline hover:shadow-lg transition duration-200';
         } else {
           toolCard = document.createElement('div');
           toolCard.className =
-            'tool-card bg-gray-800 rounded-xl p-4 cursor-pointer flex flex-col items-center justify-center text-center hover:shadow-lg transition duration-200';
+            'tool-card bg-white rounded-xl p-4 cursor-pointer flex flex-col items-center justify-center text-center hover:shadow-lg transition duration-200';
           toolCard.dataset.toolId = getToolId(tool);
         }
 
         const icon = document.createElement('i');
-        icon.className = 'w-10 h-10 mb-3 text-indigo-400';
+        icon.className = 'w-10 h-10 mb-3 text-indigo-600';
         icon.setAttribute('data-lucide', tool.icon);
 
         const toolName = document.createElement('h3');
-        toolName.className = 'font-semibold text-white';
+        toolName.className = 'font-semibold text-gray-900';
         const toolKey = toolTranslationKeys[tool.name];
         toolName.textContent = toolKey ? t(`${toolKey}.name`) : tool.name;
 
@@ -298,7 +298,7 @@ const init = async () => {
 
         if (tool.subtitle) {
           const toolSubtitle = document.createElement('p');
-          toolSubtitle.className = 'text-xs text-gray-400 mt-1 px-2';
+          toolSubtitle.className = 'text-xs text-gray-600 mt-1 px-2';
           toolSubtitle.textContent = toolKey ? t(`${toolKey}.subtitle`) : tool.subtitle;
           toolCard.appendChild(toolSubtitle);
         }
@@ -410,7 +410,7 @@ const init = async () => {
   ];
 
   if (githubStarsElements.some(el => el) && !__SIMPLE_MODE__) {
-    fetch('https://api.github.com/repos/alam00000/bentopdf')
+    fetch('https://api.github.com/repos/ricardoborges/StrixPDF')
       .then((response) => response.json())
       .then((data) => {
         if (data.stargazers_count !== undefined) {
@@ -442,10 +442,10 @@ const init = async () => {
 
   if (shortcutsTabBtn && preferencesTabBtn) {
     shortcutsTabBtn.addEventListener('click', () => {
-      shortcutsTabBtn.classList.add('bg-indigo-600', 'text-white');
-      shortcutsTabBtn.classList.remove('text-gray-300');
-      preferencesTabBtn.classList.remove('bg-indigo-600', 'text-white');
-      preferencesTabBtn.classList.add('text-gray-300');
+      shortcutsTabBtn.classList.add('bg-indigo-600', 'text-gray-900');
+      shortcutsTabBtn.classList.remove('text-gray-700');
+      preferencesTabBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+      preferencesTabBtn.classList.add('text-gray-700');
       shortcutsTabContent?.classList.remove('hidden');
       preferencesTabContent?.classList.add('hidden');
       shortcutsTabFooter?.classList.remove('hidden');
@@ -454,10 +454,10 @@ const init = async () => {
     });
 
     preferencesTabBtn.addEventListener('click', () => {
-      preferencesTabBtn.classList.add('bg-indigo-600', 'text-white');
-      preferencesTabBtn.classList.remove('text-gray-300');
-      shortcutsTabBtn.classList.remove('bg-indigo-600', 'text-white');
-      shortcutsTabBtn.classList.add('text-gray-300');
+      preferencesTabBtn.classList.add('bg-indigo-600', 'text-gray-900');
+      preferencesTabBtn.classList.remove('text-gray-700');
+      shortcutsTabBtn.classList.remove('bg-indigo-600', 'text-gray-900');
+      shortcutsTabBtn.classList.add('text-gray-700');
       preferencesTabContent?.classList.remove('hidden');
       shortcutsTabContent?.classList.add('hidden');
       preferencesTabFooter?.classList.remove('hidden');
@@ -718,7 +718,7 @@ const init = async () => {
       section.className = 'category-section mb-6 last:mb-0';
 
       const header = document.createElement('h3');
-      header.className = 'text-gray-400 text-xs font-bold uppercase tracking-wider mb-3 pl-1';
+      header.className = 'text-gray-600 text-xs font-bold uppercase tracking-wider mb-3 pl-1';
       // Translate category name
       const categoryKey = categoryTranslationKeys[category.name];
       header.textContent = categoryKey ? t(categoryKey) : category.name;
@@ -736,17 +736,17 @@ const init = async () => {
         const currentShortcut = allShortcuts.get(toolId) || '';
 
         const item = document.createElement('div');
-        item.className = 'shortcut-item flex items-center justify-between p-3 bg-gray-900 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors';
+        item.className = 'shortcut-item flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors';
 
         const left = document.createElement('div');
         left.className = 'flex items-center gap-3';
 
         const icon = document.createElement('i');
-        icon.className = 'w-5 h-5 text-indigo-400';
+        icon.className = 'w-5 h-5 text-indigo-600';
         icon.setAttribute('data-lucide', tool.icon);
 
         const name = document.createElement('span');
-        name.className = 'text-gray-200 font-medium';
+        name.className = 'text-gray-800 font-medium';
         const toolKey = toolTranslationKeys[tool.name];
         name.textContent = toolKey ? t(`${toolKey}.name`) : tool.name;
 
@@ -757,13 +757,13 @@ const init = async () => {
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.className = 'shortcut-input w-32 bg-gray-800 border border-gray-600 text-white text-center text-sm rounded px-2 py-1 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all';
+        input.className = 'shortcut-input w-32 bg-white border border-gray-300 text-gray-900 text-center text-sm rounded px-2 py-1 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all';
         input.placeholder = t('settings.clickToSet');
         input.value = formatShortcutDisplay(currentShortcut, isMac);
         input.readOnly = true;
 
         const clearBtn = document.createElement('button');
-        clearBtn.className = 'absolute -right-2 -top-2 bg-gray-700 hover:bg-red-600 text-white rounded-full p-0.5 hidden group-hover:block shadow-sm';
+        clearBtn.className = 'absolute -right-2 -top-2 bg-gray-100 hover:bg-red-600 hover:text-white text-gray-900 rounded-full p-0.5 hidden group-hover:block shadow-sm';
         clearBtn.innerHTML = '<i data-lucide="x" class="w-3 h-3"></i>';
         if (currentShortcut) {
           right.classList.add('group');
@@ -844,7 +844,7 @@ const init = async () => {
               );
 
               input.value = formatShortcutDisplay(ShortcutsManager.getShortcut(toolId) || '', isMac);
-              input.classList.remove('border-indigo-500', 'text-indigo-400');
+              input.classList.remove('border-indigo-500', 'text-indigo-600');
               input.blur();
               return;
             }
@@ -863,7 +863,7 @@ const init = async () => {
               if (!shouldProceed) {
                 // Revert display
                 input.value = formatShortcutDisplay(ShortcutsManager.getShortcut(toolId) || '', isMac);
-                input.classList.remove('border-indigo-500', 'text-indigo-400');
+                input.classList.remove('border-indigo-500', 'text-indigo-600');
                 input.blur();
                 return;
               }
@@ -885,12 +885,12 @@ const init = async () => {
 
         input.onfocus = () => {
           input.value = t('settings.pressKeys');
-          input.classList.add('border-indigo-500', 'text-indigo-400');
+          input.classList.add('border-indigo-500', 'text-indigo-600');
         };
 
         input.onblur = () => {
           input.value = formatShortcutDisplay(ShortcutsManager.getShortcut(toolId) || '', isMac);
-          input.classList.remove('border-indigo-500', 'text-indigo-400');
+          input.classList.remove('border-indigo-500', 'text-indigo-600');
         };
 
         right.append(input);
